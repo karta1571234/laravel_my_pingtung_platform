@@ -31,6 +31,7 @@ class User extends Authenticatable
         'TEL',
         'bureau_id',
         'password',
+        'social_worker_id',
     ];
 
     /**
@@ -144,5 +145,15 @@ class User extends Authenticatable
         } catch (\Throwable $th) {
             return response()->json(['status' => 400, 'message' => '使用者啟用失敗=>' . $th->getMessage(), 'success' => false], 400);
         }
+    }
+    //社工-長者(for director_admin)(目前用不到了)
+    public function getAvailableSocialworkers($bureau_id)
+    {
+        $sql = 'SELECT `users`.`id`,`name`,`email`,`ID_num`,`gender`,`birth`,`address_1`,`address_2`,`phone`,`TEL`,`users`.`created_at`,`users`.`updated_at`,`users`.`deleted_at`
+                FROM `users`,`user_role` WHERE `user_role`.`role_id`=5 and `user_role`.`user_id` = `users`.`id` and `users`.`bureau_id`=?;';
+        $args = array($bureau_id);
+        $select = DB::select($sql, $args);
+
+        return $select;
     }
 }

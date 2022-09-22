@@ -64,7 +64,7 @@ class CheckLogin
         $issuer_claim = "http://localhost/laravel/my_pingtung_platform";
         $audience_claim = "http://localhost/laravel/my_pingtung_platform";
         $issuedat_claim = time(); // issued at
-        $expire_claim = $issuedat_claim + 1200;
+        $expire_claim = $issuedat_claim + 3600;
         $payload = array(
             "iss" => $issuer_claim,
             "aud" => $audience_claim,

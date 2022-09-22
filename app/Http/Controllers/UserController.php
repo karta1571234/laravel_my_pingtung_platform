@@ -288,6 +288,7 @@ class UserController extends Controller
             return $response;
         }
     }
+    //還沒加上roles會誤刪之後補上
     public function destroy(Request $request, $id)
     {
         $response = $this->show($request, $id);
@@ -331,6 +332,104 @@ class UserController extends Controller
             return $response;
         }
     }
+    //社工-長者
+    public function getAvailableSocialworkers(Request $request)
+    {
+        $arr_roles = $this->getRoles($request);
+        $role = Role::find(5);    //社工role_id=5
+        try {
+            //看看誰能取得哪些社工
+            if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
+                $users = $role->users;
+            } else {
+                $id = $this->CL->decodeToken($request->header('token'));
+                $bureau_id = User::find($id)->bureau_id;
+                $users = $role->users->where('bureau_id', $bureau_id)->flatten();   //flatten function can convert dict to arr
+            }
+            if (count($users) > 0) {
+                return response()->json(['status' => 200, 'message' => '查詢可配置的社工成功', 'result' => $users, 'success' => false], 200);
+            }
+            return response()->json(['status' => 202, 'message' => '查詢可配置的社工失敗=>目前無可配置的社工', 'result' => [], 'success' => false], 202);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 400, 'message' => '查詢可配置的社工失敗=>' . $th->getMessage(), 'result' => [], 'success' => false], 400);
+        }
+    }
+    public function getOldersOnSocialworker($id)
+    {
+        try {
+            $user_soical_worker = User::find($id);
+            $bureau_id = $user_soical_worker->bureau_id;
+
+            $role = Role::find(6);    //長者role_id=6
+            $users = $role->users;
+
+            $user_older = $users->where('bureau_id', $bureau_id)->flatten();
+            if (count($user_older) > 0) {
+                return response()->json(['status' => 200, 'message' =>  '查詢可管理的長者成功', 'result' => $user_older, 'success' => true], 200);
+            }
+            return response()->json(['status' => 202, 'message' => '查詢可管理的長者失敗=>目前無可管理的長者', 'result' => [], 'success' => false], 202);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 400, 'message' => '查詢可管理的長者失敗=>' . $th->getMessage(), 'result' => [], 'success' => false], 400);
+        }
+    }
+    public function addOlderToSocialworkers(Request $request, $social_worker_id)
+    {
+
+        try {
+            $user_id = $request->validate(['user_id' => 'int']);
+            $user_id = $user_id['user_id'];
+
+            $user_older = User::findOrFail($user_id);
+            $user_soical_worker = User::findOrFail($social_worker_id);
+
+            $arr_user_older_roles = [];
+            foreach ($user_older->roles as $role) {
+                array_push($arr_user_older_roles, $role->name);
+            }
+            $arr_user_soical_worker_roles = [];
+            foreach ($user_soical_worker->roles as $role) {
+                array_push($arr_user_soical_worker_roles, $role->name);
+            }
+
+            if ((count($arr_user_older_roles) == 1 and count($arr_user_soical_worker_roles) == 1) and
+                (in_array('user', $arr_user_older_roles) and in_array('director_user', $arr_user_soical_worker_roles))
+            ) {
+                if ($user_older->bureau_id == $user_soical_worker->bureau_id) {
+                    $update = $user_older->update(['social_worker_id' => $social_worker_id]);
+
+                    if ($update) {
+                        return response()->json(['status' => 200, 'message' => '社工(編號:' . $social_worker_id . ')新增' . $user_older->name . '長者管理成功', 'success' => true], 200);
+                    } else {
+                        return response()->json(['status' => 202, 'message' => '社工新增管理失敗', 'success' => false], 202);
+                    }
+                }
+                return response()->json(['status' => 400, 'message' => '社工與長者在不同單位', 'success' => false], 400);
+            } else {
+                return response()->json(['status' => 400, 'message' => '社工與長者角色不對', 'success' => false], 400);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 400, 'message' => '社工新增管理失敗=>' . $th->getMessage(), 'success' => false], 400);
+        }
+    }
+    public function getOldersWithSocialworker($id)
+    {
+        try {
+            $role = Role::find(6);    //長者role_id=6
+            $users_older = $role->users;
+
+            $users_older = User::all();
+            $users = $users_older->where('social_worker_id', $id)->flatten();
+
+            if (count($users) > 0) {
+                return response()->json(['status' => 200, 'message' =>  '查詢社工(編號:' . $id . ')管理長者成功', 'result' => $users, 'success' => true], 200);
+            }
+            return response()->json(['status' => 202, 'message' =>  '查詢社工(編號:' . $id . ')管理長者失敗=>目前還沒有長者', 'result' => $users, 'success' => true], 202);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 400, 'message' => '查詢社工(編號:' . $id . ')管理長者失敗=>' . $th->getMessage(), 'success' => false], 400);
+        }
+    }
+
+    //額外的function
     protected function getRoles(Request $request)
     {
         //決定bureau_id

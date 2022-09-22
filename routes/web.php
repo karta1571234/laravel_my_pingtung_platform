@@ -57,7 +57,28 @@ Route::get('/getAllNews', [NewsController::class, 'getAllNews']);   //取得所�
 Route::delete('/news/{id}/invisible', [NewsController::class, 'invisible']);    //隱藏消息
 Route::post('/news/{id}/recovery', [NewsController::class, 'recovery']);    //文章可見
 
-Route::get('/getBureaus', [BureauController::class, 'getBureaus']);   //取得所有單位
-Route::get('/getRoles', [RoleController::class, 'getRoles']);   //取得所有角色
-//衛生局可調動衛生所的人
-//衛生所可調動社工
+Route::get('/getBureaus', [BureauController::class, 'getBureaus']);   //取得所有單位(新增角色是要賦予單位)
+Route::get('/getRoles', [RoleController::class, 'getRoles']);   //取得所有角色(新增角色是要賦予權限)
+//衛生局可調動(編輯)衛生所的人
+//衛生所可調動(編輯)社工
+
+//衛生局可分配社工至長者
+//衛生所可分配所內社工至長者
+//可從社工分配、也可從長者分配
+
+//The prefix method may be used to prefix each route in the group with a given URI.
+Route::prefix('/socialworker_older/getSocialworkers')->group(function () {
+    //從社工去分配長者
+    Route::get('/available', [UserController::class, 'getAvailableSocialworkers']);             //1.找出要配置的社工
+    Route::get('/{id}/olders', [UserController::class, 'getOldersOnSocialworker']);             //2.找出要(可)被管理的長者  (須把社工id帶入才知有哪些長者)
+    Route::post('/{id}/addOlder', [UserController::class, 'addOlderToSocialworkers']);          //3.將長者存進社工(social_worker_id)
+    Route::get('/{id}/manage/olders', [UserController::class, 'getOldersWithSocialworker']);    //4.取得社工管理的長者
+    // Matches The "/socialworker_older/getSocialworkers/older" URL
+});
+
+
+Route::prefix('/socialworker_older/getOlders')->group(function () {
+    //從長者去分配社工
+    Route::get('/available', [UserController::class, 'getAvailableOlders']);    //1.
+    Route::get('/socialworker', [UserController::class, 'getOldersToSocialworkers']);
+});
