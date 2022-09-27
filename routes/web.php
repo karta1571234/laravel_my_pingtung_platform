@@ -32,7 +32,7 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('/logout', [UserController::class, 'logout']);
 Route::post('/register', [UserController::class, 'register']);
 //self-profile
-Route::get('/getProfile', [UserController::class, 'getProfile'])->middleware('hasroles:cheif_admin');
+Route::get('/getProfile', [UserController::class, 'getProfile']);
 Route::put('/updateProfile', [UserController::class, 'updateProfile']);
 //questionnaire
 Route::get('/getQuestionnaire', [QuestionnaireController::class, 'index']); //admin(目前沒有用)
@@ -65,20 +65,24 @@ Route::get('/getRoles', [RoleController::class, 'getRoles']);   //取得所有�
 //衛生所可分配所內社工至長者
 //可從社工分配、也可從長者分配
 
-//The prefix method may be used to prefix each route in the group with a given URI.
-Route::prefix('/socialworker_older/getSocialworkers')->group(function () {
-    //從社工去分配長者
-    Route::get('/available', [UserController::class, 'getAvailableSocialworkers']);             //1.找出要配置的社工
-    Route::get('/{id}/olders', [UserController::class, 'getOldersOnSocialworker']);             //2.找出要(可)被管理的長者  (須把社工id帶入才知有哪些長者)
-    Route::post('/{id}/addOlder', [UserController::class, 'addOlderToSocialworkers']);          //3.將長者存進社工(social_worker_id)
-    Route::get('/{id}/manage/olders', [UserController::class, 'getOldersWithSocialworker']);    //4.取得社工管理的長者
-    Route::delete('/{id}/delOlder', [UserController::class, 'delOlderFromSocialworkers']);      //(5.)刪除社工管理的長者
-    // Matches The "/socialworker_older/getSocialworkers/older" URL
-});
+//The controller method may be used to prefix each action in the group with a given controller.
+Route::controller(UserController::class)->group(function () {
+    //The prefix method may be used to prefix each route in the group with a given URI.
+    Route::prefix('/socialworker_older/getSocialworkers')->group(function () {
+        //從社工去分配長者
+        Route::get('/available', 'getAvailableSocialworkers');                  //1.找出要配置的社工
+        Route::get('/{id}/olders', 'getOldersOnSocialworker');                  //2.找出要(可)被管理的長者  (須把社工id帶入才知有哪些長者)
+        Route::post('/{id}/addOlder', 'addOlderToSocialworker');                //3.將長者存進社工(social_worker_id)
+        Route::get('/{id}/manage/olders', 'getOldersWithSocialworker');         //4.取得社工管理的長者
+        Route::delete('/{id}/delOlder', 'delOlderFromSocialworker');            //(5.)刪除社工管理的長者
+    }); // Matches The "/socialworker_older/getSocialworkers/..." URL
 
-
-Route::prefix('/socialworker_older/getOlders')->group(function () {
-    //從長者去分配社工
-    Route::get('/available', [UserController::class, 'getAvailableOlders']);    //1.
-    Route::get('/socialworker', [UserController::class, 'getOldersToSocialworkers']);
-});
+    Route::prefix('/socialworker_older/getOlders')->group(function () {
+        //從長者去分配社工
+        Route::get('/available', 'getAvailableOlders');                         //1.找出要配置的長者
+        Route::get('/{id}/socialworkers', 'getSocialworkersOnOlder');           //2.找出要(可)管理的社工  (須把長者id帶入才知有哪些社工)
+        Route::post('/{id}/addSocialworker', 'addSocialworkerToOlder');         //3.將社工存進長者(social_worker_id)
+        Route::get('/{id}/manage/socialworker', 'getSocialworkerWithOlder');    //4.取得管理長者的社工
+        Route::delete('/{id}/delSocialworker', 'delSocialworkerFromOlder');     //(5.)刪除管理長者的社工
+    });
+}); // Matches The "[UserController::class]" controller
