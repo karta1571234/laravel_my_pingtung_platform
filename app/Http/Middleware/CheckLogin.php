@@ -42,7 +42,8 @@ class CheckLogin
                 //     if ($response->status() == '200') {
                 //         return response()->json(['status' => 200, 'message' => '註冊成功',  'success' => true], 200);
                 //     }
-                //     break;
+                // break;
+
             default:
                 //401=>未登入(認證錯誤)
                 //403=>權限不足(授權錯誤)
