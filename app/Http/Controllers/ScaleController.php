@@ -37,9 +37,13 @@ class ScaleController extends Controller
                     foreach ($scaledetails as $scaledetail) {
                         $question = $scaledetail->question;
                         $option =  json_decode($scaledetail->option);
+                        $input_type = $scaledetail->input_type;
+                        $tips = $scaledetail->tips;
                         #配發key-value
                         $json_decode_key_values['question'] = $question;
                         $json_decode_key_values['option'] = $option;
+                        $json_decode_key_values['input_type'] = $input_type;
+                        $json_decode_key_values['tips'] = $tips;
                         #append(push)進陣列裡
                         array_push($json_decode_scaledetails, $json_decode_key_values);
                     }
@@ -88,8 +92,9 @@ class ScaleController extends Controller
     {
         try {
             $token = $request->header('token');
-            // $id = $this->CL->decodeToken($token);
-            $id = 22;
+            $id = $this->CL->decodeToken($token);
+            //test
+            // $id = 22;
             $user = User::findOrFail($id);
 
             $scaleanwsers = $user->scaleAns;
@@ -124,7 +129,7 @@ class ScaleController extends Controller
                             $item['scale_order_name'] = $item->scaleorder;
                         }
                     } else {
-                        return response()->json(['status' => 202, 'message' => '查詢所有量表紀錄失敗', 'result' => [], 'success' => false], 202);
+                        return response()->json(['status' => 202, 'message' => '衛生局查詢所有量表紀錄失敗', 'result' => [], 'success' => false], 202);
                     }
                 } else if (in_array('director_admin', $arr_roles)) {
                     //查同衛生所下的量表
@@ -148,7 +153,7 @@ class ScaleController extends Controller
                             }
                         }
                     } else {
-                        return response()->json(['status' => 202, 'message' => '查詢所有量表紀錄失敗', 'result' => [], 'success' => false], 202);
+                        return response()->json(['status' => 202, 'message' => '衛生所查詢所有量表紀錄失敗', 'result' => [], 'success' => false], 202);
                     }
                 }
                 return response()->json(['status' => 200, 'message' => '查詢所有量表紀錄成功', 'result' => $AllScaleAnswer, 'success' => true], 200);
@@ -167,7 +172,7 @@ class ScaleController extends Controller
                         return response()->json(['status' => 202, 'message' => '查詢單一量表紀錄失敗', 'result' => [], 'success' => false], 202);
                     }
                 } else if (in_array('director_admin', $arr_roles)) {
-                    //衛生所還無法查特定的量表紀錄
+                    //!衛生所還無法查"特定"的量表紀錄!(ex:鎖定主量表1)
                     //查同衛生所下的量表
                     $token = $request->header('token');
                     $uid = $this->CL->decodeToken($token);
@@ -177,7 +182,7 @@ class ScaleController extends Controller
                     $users = $bureau->users;
                     //重新別名為了統一$OneScaleAnswser
                     $OneScaleAnswser = $users;
-                    // return $OneScaleAnswser;
+
                     if (count($OneScaleAnswser) >= 1) {
                         foreach ($OneScaleAnswser as $user) {
                             foreach ($user->scaleAns as $item) {
@@ -188,7 +193,7 @@ class ScaleController extends Controller
                                 $item['user_name'] = $item->user->name;
                                 $answer = json_decode($item->answer);
                                 $item['answer'] = $answer;
-                                $item['scale_order_name'] = $item->scaleorder;
+                                $item['scale_order_name'] = $item->scaleorder->name;
                             }
                         }
                     } else {
@@ -207,16 +212,17 @@ class ScaleController extends Controller
             if ($id != null) {
                 $arr_roles = $this->getRoles($request);
                 if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
-                    $user = User::find($id);
+                    $user = User::findOrFail($id);
                     $scaleAns = $user->scaleAns;
-
-                    foreach ($scaleAns as $item) {
-                        $answer = json_decode($item->answer);
-                        $item['answer'] = $answer;
-                        $item['scale_order_name'] = $item->scaleorder;
+                    if (count($scaleAns) > 0) {
+                        foreach ($scaleAns as $item) {
+                            $answer = json_decode($item->answer);
+                            $item['answer'] = $answer;
+                            $item['scale_order_name'] = $item->scaleorder;
+                        }
+                        return response()->json(['status' => 200, 'message' => '查詢特定使用者量表紀錄成功', 'result' => $scaleAns, 'success' => 'true'], 200);
                     }
-
-                    return response()->json(['status' => 200, 'message' => '查詢特定使用者量表紀錄成功', 'result' => $scaleAns, 'success' => 'true'], 200);
+                    return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . $user->name . '還沒有紀錄', 'result' => $scaleAns, 'success' => 'true'], 202);
                 } else {
                     $token = $request->header('token');
                     $uid = $this->CL->decodeToken($token);
@@ -231,13 +237,15 @@ class ScaleController extends Controller
                     if (in_array($id, $arr_id)) {
                         $user = User::findOrFail($id);
                         $scaleAns = $user->scaleAns;
-
-                        foreach ($scaleAns as $item) {
-                            $answer = json_decode($item->answer);
-                            $item['answer'] = $answer;
-                            $item['scale_order_name'] = $item->scaleorder;
+                        if (count($scaleAns) > 0) {
+                            foreach ($scaleAns as $item) {
+                                $answer = json_decode($item->answer);
+                                $item['answer'] = $answer;
+                                $item['scale_order_name'] = $item->scaleorder;
+                            }
+                            return response()->json(['status' => 200, 'message' => '查詢特定使用者量表紀錄成功', 'result' => $scaleAns, 'success' => 'true'], 200);
                         }
-                        return response()->json(['status' => 200, 'message' => '查詢特定使用者量表紀錄成功', 'result' => $scaleAns, 'success' => 'true'], 200);
+                        return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . $user->name . '還沒有紀錄', 'result' => $scaleAns, 'success' => 'true'], 202);
                     } else {
                         return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗=>局裡沒有這個人', 'result' => [], 'success' => 'true'], 400);
                     }

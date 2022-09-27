@@ -25,9 +25,13 @@ class QuestionnaireController extends Controller
                 foreach ($questionnaires as $questionnaire) {
                     $question = $questionnaire->question;
                     $option =  json_decode($questionnaire->option);
+                    $input_type = $questionnaire->input_type;
+                    $tips = $questionnaire->tips;
                     #配發key-value
                     $json_decode_key_values['question'] = $question;
                     $json_decode_key_values['option'] = $option;
+                    $json_decode_key_values['input_type'] = $input_type;
+                    $json_decode_key_values['tips'] = $tips;
                     #append(push)進陣列裡
                     array_push($json_decode_questionnaires, $json_decode_key_values);
                 }
@@ -76,8 +80,9 @@ class QuestionnaireController extends Controller
     {
         try {
             $token = $request->header('token');
-            // $id = $this->CL->decodeToken($token);
-            $id = 12;
+            $id = $this->CL->decodeToken($token);
+            //test
+            // $id = 12;
             $user = User::findOrFail($id);
             $questionnaire = $user->questionnaireAns;
 
@@ -87,8 +92,8 @@ class QuestionnaireController extends Controller
                 $answers = json_decode($questionnaire->answer);
                 $arr_ans = array();
                 //把答案放進陣列裡
-                //總共22題,先補長(null)
-                $arr_pad_ans = array_pad($arr_ans, 22, null);
+                //總共28題,先補長(null)
+                $arr_pad_ans = array_pad($arr_ans, 28, null);
                 foreach ($answers as $key => $option) {
                     $arr_pad_ans[$key - 1] = $option;
                 }
@@ -100,9 +105,13 @@ class QuestionnaireController extends Controller
                     foreach ($questionnaires as $idx => $questionnaire) {
                         $question = $questionnaire->question;
                         $option =  json_decode($questionnaire->option);
+                        $input_type = $questionnaire->input_type;
+                        $tips = $questionnaire->tips;
                         #配發key-value
                         $json_decode_key_values['question'] = $question;
                         $json_decode_key_values['option'] = $option;
+                        $json_decode_key_values['input_type'] = $input_type;
+                        $json_decode_key_values['tips'] = $tips;
                         $json_decode_key_values['answer'] = $arr_pad_ans[$idx];
                         #append(push)進陣列裡
                         array_push($json_decode_questionnaires, $json_decode_key_values);
