@@ -15,6 +15,12 @@ class QuestionnaireSeeder extends Seeder
      */
     public function run()
     {
+        Questionnaire::create(['question' => '請問您的姓名：', 'option' => '[]', 'input_type' => 'text_string', 'tips' => '']);
+        Questionnaire::create(['question' => '請問您的身分證字號：', 'option' => '[]', 'input_type' => 'text_string', 'tips' => '']);
+        Questionnaire::create(['question' => '請問您的出生年月日：', 'option' => '[]', 'input_type' => 'date', 'tips' => '']);
+        Questionnaire::create(['question' => '請問您有無手機：', 'option' => '["男","女"]', 'input_type' => 'radiobox', 'tips' => '']);
+        Questionnaire::create(['question' => '請問您有無手機：', 'option' => '["有,號碼:","無"]', 'input_type' => 'text_string', 'tips' => '']);
+        Questionnaire::create(['question' => '請問您家裡有無市用電話：', 'option' => '["有,號碼:","無"]', 'input_type' => 'text_string', 'tips' => '']);
         Questionnaire::create(['question' => '請問您現在居住於屏東縣哪一鄉鎮？', 'option' => '["屏東市","高樹鄉","鹽埔鄉","竹田鄉","內埔鄉","萬丹鄉","潮州鎮","萬巒鄉","東港鎮","獅子鄉","恆春鎮","其他"]', 'input_type' => 'radiobox', 'tips' => '']);
         Questionnaire::create(['question' => '請問您是否具原住民身分？', 'option' => '["無","有"]', 'input_type' => 'radiobox', 'tips' => '']);
         Questionnaire::create(['question' => '請問您的族群背景？', 'option' => '["閩南人/漢人","客家人","原住民","其他"]', 'input_type' => 'radiobox', 'tips' => '']);
