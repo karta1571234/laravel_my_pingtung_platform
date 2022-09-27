@@ -47,7 +47,6 @@ Route::get('/getUserScaleAnswer/user/{id?}', [ScaleController::class, 'getUserSc
 
 //admin(衛生局)
 Route::resource('/userProfile', UserController::class)->except(['create', 'edit'])->middleware('hasroles:cheif_admin,bureau_admin,director_admin');    //使用者檔案
-// Route::resource('/userProfile', UserController::class)->except(['create', 'edit']);    //使用者檔案
 Route::delete('/userProfile/{id}/disable', [UserController::class, 'disable']); //禁用使用者
 Route::post('/userProfile/{id}/recovery', [UserController::class, 'recovery']); //恢復使用者
 Route::get('searchUser', [UserController::class, 'search']); //搜尋使用者
@@ -73,6 +72,7 @@ Route::prefix('/socialworker_older/getSocialworkers')->group(function () {
     Route::get('/{id}/olders', [UserController::class, 'getOldersOnSocialworker']);             //2.找出要(可)被管理的長者  (須把社工id帶入才知有哪些長者)
     Route::post('/{id}/addOlder', [UserController::class, 'addOlderToSocialworkers']);          //3.將長者存進社工(social_worker_id)
     Route::get('/{id}/manage/olders', [UserController::class, 'getOldersWithSocialworker']);    //4.取得社工管理的長者
+    Route::delete('/{id}/delOlder', [UserController::class, 'delOlderFromSocialworkers']);      //(5.)刪除社工管理的長者
     // Matches The "/socialworker_older/getSocialworkers/older" URL
 });
 
