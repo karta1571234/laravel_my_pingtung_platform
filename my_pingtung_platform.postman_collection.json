@@ -21,7 +21,7 @@
 							},
 							{
 								"key": "token",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYxNzgwMjQ1LCJleHAiOjE2NjE3ODE0NDUsImRhdGEiOnsiaWQiOjIyfX0.9rXSQiWE5dR7qcJEORp_UUFnMUJ1vKWUPH-xG5Lak6U",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyODc1OTcsImV4cCI6MTY2NDI5MTE5NywiZGF0YSI6eyJpZCI6MjJ9fQ.arcBCXta4_E96RQZ-Mj4PTq_V0-Q56NojWmsaxJVM3g",
 								"type": "text"
 							}
 						],
@@ -202,7 +202,7 @@
 							"urlencoded": [
 								{
 									"key": "account",
-									"value": "test2@example.com",
+									"value": "test3@example.com00",
 									"type": "text"
 								},
 								{
@@ -244,7 +244,7 @@
 							"urlencoded": [
 								{
 									"key": "account",
-									"value": "test2@example.com",
+									"value": "test@test.com1",
 									"type": "text"
 								},
 								{
@@ -286,7 +286,7 @@
 							"urlencoded": [
 								{
 									"key": "account",
-									"value": "test2@example.com",
+									"value": "test@test.com2",
 									"type": "text"
 								},
 								{
@@ -370,7 +370,7 @@
 							"urlencoded": [
 								{
 									"key": "account",
-									"value": "test2@example.com",
+									"value": "test@test.com4",
 									"type": "text"
 								},
 								{
@@ -408,7 +408,7 @@
 							},
 							{
 								"key": "token",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjU5MjAxNzA0LCJleHAiOjE2NTkyMDI5MDQsImRhdGEiOnsiaWQiOjIyfX0.7w_2Aeo9aJhe3cksttiVAkYSPlQxS7MWNHKUjFHlL8A",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjU1NzYsImV4cCI6MTY2NDYyOTE3NiwiZGF0YSI6eyJpZCI6NjR9fQ.yIdWz0WHiV7HtLHCMf-y1UWeMENQuOV50DPhnjHsCNo",
 								"type": "text"
 							}
 						],
@@ -448,7 +448,7 @@
 									},
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDMxNzM2LCJleHAiOjE2NjAwMzI5MzYsImRhdGEiOnsiaWQiOjIyfX0.evwZDwqZwO8_PN-biMMMrre5pWp7B9xuqqF4hQ3ht9E",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQzODM4NjksImV4cCI6MTY2NDM4NzQ2OSwiZGF0YSI6eyJpZCI6NjR9fQ.xg1jk39M2W1I9Oeqx_chBRhYjlsumHYXkBeOu_zIxpM",
 										"type": "text"
 									}
 								],
@@ -457,7 +457,7 @@
 									"urlencoded": [
 										{
 											"key": "answer",
-											"value": "{\"1\": \"2\", \"2\": \"4\",\"3\":\"5\",\"4\":\"apple\",\"5\":[\"1\",\"2\",\"5\"],\"10\":\"5\",\"15\":\"app\"}",
+											"value": "{\n    \"1\": \"7\",\n    \"2\": \"2\",\n    \"3\": \"3\",\n    \"4\": \"1\",\n    \"5\": \"1\",\n    \"6\": \"1\",\n    \"7\": \"1\",\n    \"8\": \"1\",\n    \"9\": \"1\",\n    \"10\": \"1\",\n    \"11\": \"1\",\n    \"12\": \"1\",\n    \"13\": \"1\",\n    \"14\": \"1\",\n    \"15\": \"1\",\n    \"16\": \"2\",\n    \"17\": \"1\",\n    \"18\": \"1\",\n    \"19\": \"1\",\n    \"20\": \"1\",\n    \"21\": \"1\",\n    \"22\": \"1\"\n}",
 											"type": "text"
 										}
 									]
@@ -488,7 +488,7 @@
 								"header": [
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDMxNzM2LCJleHAiOjE2NjAwMzI5MzYsImRhdGEiOnsiaWQiOjIyfX0.evwZDwqZwO8_PN-biMMMrre5pWp7B9xuqqF4hQ3ht9E",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQzODM4NjksImV4cCI6MTY2NDM4NzQ2OSwiZGF0YSI6eyJpZCI6NjR9fQ.xg1jk39M2W1I9Oeqx_chBRhYjlsumHYXkBeOu_zIxpM",
 										"type": "text"
 									}
 								],
@@ -524,12 +524,12 @@
 								"header": [
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDQ2MDM0LCJleHAiOjE2NjAwNDcyMzQsImRhdGEiOnsiaWQiOjIyfX0.FMYZ8D0nb30Im0bd2OhW4vKlFwQMOejTdthxja7tLa4",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQzODM4NjksImV4cCI6MTY2NDM4NzQ2OSwiZGF0YSI6eyJpZCI6NjR9fQ.xg1jk39M2W1I9Oeqx_chBRhYjlsumHYXkBeOu_zIxpM",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getScale/1",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getScale/3",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -539,7 +539,7 @@
 										"my_pingtung_platform",
 										"public",
 										"getScale",
-										"1"
+										"3"
 									]
 								}
 							},
@@ -557,7 +557,7 @@
 									},
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDYxMjQ1LCJleHAiOjE2NjAwNjI0NDUsImRhdGEiOnsiaWQiOjIyfX0.nUqqCpH57K6hQni88aBBXHpzJ-8Avux756fxY-BWiLk",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQzMDE5MzQsImV4cCI6MTY2NDMwNTUzNCwiZGF0YSI6eyJpZCI6Njd9fQ.RTyrZip66LjVn4GgjSoGzYOseXOr28DcepDNvqO2Pmg",
 										"type": "text"
 									}
 								],
@@ -566,13 +566,13 @@
 									"urlencoded": [
 										{
 											"key": "answer",
-											"value": "{\"1\": \"2\", \"2\": \"4\",\"3\":\"5\",\"4\":\"apple\",\"5\":[\"1\",\"2\",\"5\"],\"10\":\"5\",\"15\":\"app\",\"16\":\"5\"}",
+											"value": "{\n    \"1\": \"1\",\n    \"2\": \"2\",\n    \"3\": \"1\",\n    \"4\": \"1\",\n    \"5\": \"1\",\n    \"6\": \"1\",\n    \"7\": \"1\",\n    \"8\": \"1\",\n    \"9\": \"1\",\n    \"10\": \"1\",\n    \"11\": \"1\",\n    \"12\": \"1\",\n    \"13\": \"1\",\n    \"14\": \"1\",\n    \"15\": \"睡眠\",\n    \"16\": \"錢\"\n}",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getScale/3/save",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getScale/2/save",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -582,7 +582,7 @@
 										"my_pingtung_platform",
 										"public",
 										"getScale",
-										"3",
+										"2",
 										"save"
 									]
 								}
@@ -596,7 +596,7 @@
 								"header": [
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDYxNDQxLCJleHAiOjE2NjAwNjI2NDEsImRhdGEiOnsiaWQiOjIyfX0.4rd5o1lPBCqLbNTxEcZ_06KLWFj2mYRNNOFM1TkSvrM",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyOTkxNDcsImV4cCI6MTY2NDMwMjc0NywiZGF0YSI6eyJpZCI6NjZ9fQ.pUGU-ICcDHuB1NzMg6DAnL4bm-BqAx45XiIX8Navj14",
 										"type": "text"
 									}
 								],
@@ -636,7 +636,7 @@
 									},
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDIwODI4LCJleHAiOjE2NjAwMjIwMjgsImRhdGEiOnsiaWQiOjMzfX0.GBO4-g3BpufV3Z6DKSyn6DygYChHxp8Qft-Gk_pqNgg",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyOTkxNDcsImV4cCI6MTY2NDMwMjc0NywiZGF0YSI6eyJpZCI6NjZ9fQ.pUGU-ICcDHuB1NzMg6DAnL4bm-BqAx45XiIX8Navj14",
 										"type": "text"
 									}
 								],
@@ -672,7 +672,7 @@
 									},
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjU5MjAwNDUwLCJleHAiOjE2NTkyMDE2NTAsImRhdGEiOnsiaWQiOjIyfX0.RAmL7pxL1HGs_xlzcKr8zRTtqujuDmLI0lriOasnufM",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyODUzOTksImV4cCI6MTY2NDI4ODk5OSwiZGF0YSI6eyJpZCI6MzN9fQ.5Q9XetS3uYhfqBw9R1-SWSJJLX88aOMSH_sZg254s7c",
 										"type": "text"
 									}
 								],
@@ -749,7 +749,7 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDYxNDQxLCJleHAiOjE2NjAwNjI2NDEsImRhdGEiOnsiaWQiOjIyfX0.4rd5o1lPBCqLbNTxEcZ_06KLWFj2mYRNNOFM1TkSvrM",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyMDkzODcsImV4cCI6MTY2NDIxMjk4NywiZGF0YSI6eyJpZCI6MjJ9fQ.FJL68h79yIfyH2w0lZ__RQlKKNj9QN5Tms_sVrL4lik",
 								"type": "text"
 							},
 							{
@@ -789,6 +789,77 @@
 			]
 		},
 		{
+			"name": "social_worker",
+			"item": [
+				{
+					"name": "getOlders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\r",
+									"    \"XSRF-TOKEN\",\r",
+									"    decodeURIComponent(pm.cookies.get(\"XSRF-TOKEN\"))\r",
+									")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{XSRF-TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjQ3NTIsImV4cCI6MTY2NDYyODM1MiwiZGF0YSI6eyJpZCI6NjZ9fQ.-SE4sRw6h97j_CpuyWckxokhJ1kuEjaSddwDspbIIZ4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ID_num",
+									"value": "E125789810",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "abcd1234",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/laravel/my_pingtung_platform/public/getOlders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laravel",
+								"my_pingtung_platform",
+								"public",
+								"getOlders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "admin",
 			"item": [
 				{
@@ -801,12 +872,12 @@
 								"header": [
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyMDkzODcsImV4cCI6MTY2NDIxMjk4NywiZGF0YSI6eyJpZCI6MjJ9fQ.FJL68h79yIfyH2w0lZ__RQlKKNj9QN5Tms_sVrL4lik",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQzODM4NjksImV4cCI6MTY2NDM4NzQ2OSwiZGF0YSI6eyJpZCI6NjR9fQ.xg1jk39M2W1I9Oeqx_chBRhYjlsumHYXkBeOu_zIxpM",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getScale/1",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getScale/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -816,7 +887,7 @@
 										"my_pingtung_platform",
 										"public",
 										"getScale",
-										"1"
+										"2"
 									]
 								}
 							},
@@ -824,17 +895,24 @@
 						},
 						{
 							"name": "getAllScaleAnswer",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDYxNDQxLCJleHAiOjE2NjAwNjI2NDEsImRhdGEiOnsiaWQiOjIyfX0.4rd5o1lPBCqLbNTxEcZ_06KLWFj2mYRNNOFM1TkSvrM",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQzODM4NjksImV4cCI6MTY2NDM4NzQ2OSwiZGF0YSI6eyJpZCI6NjR9fQ.xg1jk39M2W1I9Oeqx_chBRhYjlsumHYXkBeOu_zIxpM",
 										"type": "text"
 									}
 								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllScaleAnswer",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllScaleAnswer/3",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -843,7 +921,8 @@
 										"laravel",
 										"my_pingtung_platform",
 										"public",
-										"getAllScaleAnswer"
+										"getAllScaleAnswer",
+										"3"
 									]
 								}
 							},
@@ -856,12 +935,12 @@
 								"header": [
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDYxNDQxLCJleHAiOjE2NjAwNjI2NDEsImRhdGEiOnsiaWQiOjIyfX0.4rd5o1lPBCqLbNTxEcZ_06KLWFj2mYRNNOFM1TkSvrM",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQzODM4NjksImV4cCI6MTY2NDM4NzQ2OSwiZGF0YSI6eyJpZCI6NjR9fQ.xg1jk39M2W1I9Oeqx_chBRhYjlsumHYXkBeOu_zIxpM",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllScaleAnswer",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswer/user/60",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -870,7 +949,9 @@
 										"laravel",
 										"my_pingtung_platform",
 										"public",
-										"getAllScaleAnswer"
+										"getUserScaleAnswer",
+										"user",
+										"60"
 									]
 								}
 							},
@@ -934,13 +1015,14 @@
 								"header": [
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwNjQ3NDQxLCJleHAiOjE2NjA2NDg2NDEsImRhdGEiOnsiaWQiOjIyfX0.BwBNjgtTWzeeKvYhA-wkkdlaxIKF7cbIcjryEbyb2iM",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyMDkzODcsImV4cCI6MTY2NDIxMjk4NywiZGF0YSI6eyJpZCI6MjJ9fQ.FJL68h79yIfyH2w0lZ__RQlKKNj9QN5Tms_sVrL4lik",
 										"type": "text"
 									},
 									{
 										"key": "X-XSRF-TOKEN",
 										"value": "{{XSRF-TOKEN}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"body": {
@@ -1016,7 +1098,7 @@
 										},
 										{
 											"key": "news_types_id",
-											"value": "1",
+											"value": "2",
 											"type": "text"
 										},
 										{
@@ -1090,7 +1172,7 @@
 									]
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/3/invisible",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1100,8 +1182,7 @@
 										"my_pingtung_platform",
 										"public",
 										"news",
-										"3",
-										"invisible"
+										"2"
 									]
 								}
 							},
@@ -1117,7 +1198,7 @@
 								"header": [
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDYxNDQxLCJleHAiOjE2NjAwNjI2NDEsImRhdGEiOnsiaWQiOjIyfX0.4rd5o1lPBCqLbNTxEcZ_06KLWFj2mYRNNOFM1TkSvrM",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYxNzgwMjQ1LCJleHAiOjE2NjE3ODE0NDUsImRhdGEiOnsiaWQiOjIyfX0.9rXSQiWE5dR7qcJEORp_UUFnMUJ1vKWUPH-xG5Lak6U",
 										"type": "text"
 									},
 									{
@@ -1138,7 +1219,7 @@
 									]
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/3",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllNews",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1147,8 +1228,7 @@
 										"laravel",
 										"my_pingtung_platform",
 										"public",
-										"news",
-										"3"
+										"getAllNews"
 									]
 								}
 							},
@@ -1200,7 +1280,7 @@
 									]
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/3/invisible",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/11/invisible",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1210,7 +1290,7 @@
 										"my_pingtung_platform",
 										"public",
 										"news",
-										"3",
+										"11",
 										"invisible"
 									]
 								}
@@ -1263,7 +1343,7 @@
 									]
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/3/recovery",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/11/recovery",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1273,7 +1353,7 @@
 										"my_pingtung_platform",
 										"public",
 										"news",
-										"3",
+										"11",
 										"recovery"
 									]
 								}
@@ -1296,6 +1376,11 @@
 									{
 										"key": "X-XSRF-TOKEN",
 										"value": "{{XSRF-TOKEN}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjU2NzIsImV4cCI6MTY2NDYyOTI3MiwiZGF0YSI6eyJpZCI6NjR9fQ.XW5HIOiZs-57temHu7oobmp6c5gHzIq1EykxqPk_-v0",
 										"type": "text"
 									}
 								],
@@ -1321,6 +1406,9 @@
 						},
 						{
 							"name": "getUser",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [
@@ -1331,12 +1419,23 @@
 									},
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjU5OTc2MDk1LCJleHAiOjE2NTk5NzcyOTUsImRhdGEiOnsiaWQiOjIyfX0.jzpL8iE3teFqa9D6oZh6kSOhRURTrCtJLbnq2icr0zQ",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjU2NzIsImV4cCI6MTY2NDYyOTI3MiwiZGF0YSI6eyJpZCI6NjR9fQ.XW5HIOiZs-57temHu7oobmp6c5gHzIq1EykxqPk_-v0",
 										"type": "text"
 									}
 								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjU2NzIsImV4cCI6MTY2NDYyOTI3MiwiZGF0YSI6eyJpZCI6NjR9fQ.XW5HIOiZs-57temHu7oobmp6c5gHzIq1EykxqPk_-v0",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/30",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/41",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1346,7 +1445,7 @@
 										"my_pingtung_platform",
 										"public",
 										"userProfile",
-										"30"
+										"41"
 									]
 								}
 							},
@@ -1354,7 +1453,13 @@
 						},
 						{
 							"name": "newUser",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1364,9 +1469,8 @@
 									},
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYxNTIyMzQyLCJleHAiOjE2NjE1MjM1NDIsImRhdGEiOnsiaWQiOjIyfX0.MywXQKJ9H9WmztaJvQ_hEogQVEjiZuh8RiTeiRcj88o",
-										"type": "text",
-										"disabled": true
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjM3ODAxMzgsImV4cCI6MTY2Mzc4MTMzOCwiZGF0YSI6eyJpZCI6MjJ9fQ.zJNA6NZ5xIKJ9DM3Ip9999DhyuQpC45UKroNiJfF4ks",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -1374,22 +1478,22 @@
 									"urlencoded": [
 										{
 											"key": "name",
-											"value": "kevin",
+											"value": "admin1234",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "kk@ya.com.tw.ta2",
+											"value": "test@test.com4",
 											"type": "text"
 										},
 										{
 											"key": "password",
-											"value": "1234",
+											"value": "abcd1234",
 											"type": "text"
 										},
 										{
 											"key": "ID_num",
-											"value": "E11",
+											"value": "E01012003",
 											"type": "text"
 										},
 										{
@@ -1414,24 +1518,28 @@
 										},
 										{
 											"key": "phone",
-											"value": "09708811",
+											"value": "01143231",
 											"type": "text"
 										},
 										{
 											"key": "TEL",
-											"value": "07-352000",
+											"value": "07-31322",
 											"type": "text"
 										},
 										{
 											"key": "bureau_id",
-											"value": "0",
-											"type": "text",
-											"disabled": true
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "role_id",
+											"value": "6",
+											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/register",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1440,7 +1548,7 @@
 										"laravel",
 										"my_pingtung_platform",
 										"public",
-										"register"
+										"userProfile"
 									]
 								}
 							},
@@ -1448,6 +1556,9 @@
 						},
 						{
 							"name": "updateUser",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
 							"request": {
 								"method": "PUT",
 								"header": [
@@ -1458,7 +1569,7 @@
 									},
 									{
 										"key": "token",
-										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjU5MjAwNDUwLCJleHAiOjE2NTkyMDE2NTAsImRhdGEiOnsiaWQiOjIyfX0.RAmL7pxL1HGs_xlzcKr8zRTtqujuDmLI0lriOasnufM",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYyNjQ2MjM1LCJleHAiOjE2NjI2NDc0MzUsImRhdGEiOnsiaWQiOjIyfX0.saKlBT7gmrzvZCTQ0BAu8P2XGiXb7qUQMTtVEjlC6ro",
 										"type": "text"
 									}
 								],
@@ -1467,12 +1578,12 @@
 									"urlencoded": [
 										{
 											"key": "name",
-											"value": "kev5676612",
+											"value": "Prof. Reina Rolfson",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "test3@example.com",
+											"value": "dhahn@example.com",
 											"type": "text"
 										},
 										{
@@ -1482,7 +1593,7 @@
 										},
 										{
 											"key": "birth",
-											"value": "2000/01/31",
+											"value": "2011/01/31",
 											"type": "text"
 										},
 										{
@@ -1497,18 +1608,28 @@
 										},
 										{
 											"key": "phone",
-											"value": "0949223961",
+											"value": "0999094338",
 											"type": "text"
 										},
 										{
 											"key": "TEL",
 											"value": "07-9104966",
 											"type": "text"
+										},
+										{
+											"key": "bureau_id",
+											"value": "21",
+											"type": "text"
+										},
+										{
+											"key": "role_id",
+											"value": "3",
+											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/5",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/3",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1518,7 +1639,7 @@
 										"my_pingtung_platform",
 										"public",
 										"userProfile",
-										"5"
+										"3"
 									]
 								}
 							},
@@ -1533,10 +1654,15 @@
 										"key": "X-XSRF-TOKEN",
 										"value": "{{XSRF-TOKEN}}",
 										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYyMDQzOTI3LCJleHAiOjE2NjIwNDUxMjcsImRhdGEiOnsiaWQiOjQxfX0.QUbW1tDW6f7-I86y_80i-KjtWG-3YGWV95f5z5WlgGY",
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/disable/38",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/2/disable",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1546,8 +1672,8 @@
 										"my_pingtung_platform",
 										"public",
 										"userProfile",
-										"disable",
-										"38"
+										"2",
+										"disable"
 									]
 								}
 							},
@@ -1562,10 +1688,15 @@
 										"key": "X-XSRF-TOKEN",
 										"value": "{{XSRF-TOKEN}}",
 										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYxODY3MzAwLCJleHAiOjE2NjE4Njg1MDAsImRhdGEiOnsiaWQiOjIyfX0.IjZulywttR7CcFrfOLMSCTCVVhP394jo5IbCL9pNXDE",
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/recovery/38",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/2/recovery",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1575,8 +1706,8 @@
 										"my_pingtung_platform",
 										"public",
 										"userProfile",
-										"recovery",
-										"38"
+										"2",
+										"recovery"
 									]
 								}
 							},
@@ -1591,10 +1722,19 @@
 										"key": "X-XSRF-TOKEN",
 										"value": "{{XSRF-TOKEN}}",
 										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYxODYwODczLCJleHAiOjE2NjE4NjIwNzMsImRhdGEiOnsiaWQiOjIyfX0.ZsOCPByuTGxw6NuYAh0rYGOUciE8bobsNrtZSFchg5c",
+										"type": "text"
 									}
 								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/38",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/42",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1604,7 +1744,7 @@
 										"my_pingtung_platform",
 										"public",
 										"userProfile",
-										"38"
+										"42"
 									]
 								}
 							},
@@ -1641,7 +1781,7 @@
 									]
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/searchUser?filter=ID_num&condition=E286038563",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/searchUser?filter=ID_num&condition=E2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1659,7 +1799,7 @@
 										},
 										{
 											"key": "condition",
-											"value": "E286038563"
+											"value": "E2"
 										}
 									]
 								}
@@ -1684,7 +1824,7 @@
 										"header": [
 											{
 												"key": "token",
-												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyMDkzODcsImV4cCI6MTY2NDIxMjk4NywiZGF0YSI6eyJpZCI6MjJ9fQ.FJL68h79yIfyH2w0lZ__RQlKKNj9QN5Tms_sVrL4lik",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjQ2NzMsImV4cCI6MTY2NDYyODI3MywiZGF0YSI6eyJpZCI6NjV9fQ.5rGJxyGt-sFR825LsJX-qKkGa14XdXoGO3O8ElJLrdM",
 												"type": "text"
 											},
 											{
@@ -1732,7 +1872,7 @@
 										"header": [
 											{
 												"key": "token",
-												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyMDkzODcsImV4cCI6MTY2NDIxMjk4NywiZGF0YSI6eyJpZCI6MjJ9fQ.FJL68h79yIfyH2w0lZ__RQlKKNj9QN5Tms_sVrL4lik",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjQ2NzMsImV4cCI6MTY2NDYyODI3MywiZGF0YSI6eyJpZCI6NjV9fQ.5rGJxyGt-sFR825LsJX-qKkGa14XdXoGO3O8ElJLrdM",
 												"type": "text"
 											},
 											{
@@ -1747,12 +1887,13 @@
 												{
 													"key": "social_worker_id",
 													"value": "333",
-													"type": "text"
+													"type": "text",
+													"disabled": true
 												}
 											]
 										},
 										"url": {
-											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/61/olders",
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/66/olders",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -1763,7 +1904,7 @@
 												"public",
 												"socialworker_older",
 												"getSocialworkers",
-												"61",
+												"66",
 												"olders"
 											]
 										}
@@ -1777,7 +1918,7 @@
 										"header": [
 											{
 												"key": "token",
-												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwNjQ3NDQxLCJleHAiOjE2NjA2NDg2NDEsImRhdGEiOnsiaWQiOjIyfX0.BwBNjgtTWzeeKvYhA-wkkdlaxIKF7cbIcjryEbyb2iM",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjQ2NzMsImV4cCI6MTY2NDYyODI3MywiZGF0YSI6eyJpZCI6NjV9fQ.5rGJxyGt-sFR825LsJX-qKkGa14XdXoGO3O8ElJLrdM",
 												"type": "text"
 											},
 											{
@@ -1790,33 +1931,14 @@
 											"mode": "urlencoded",
 											"urlencoded": [
 												{
-													"key": "title",
-													"value": "aa2ws",
-													"type": "text",
-													"disabled": true
-												},
-												{
-													"key": "content",
-													"value": "test233",
-													"type": "text",
-													"disabled": true
-												},
-												{
-													"key": "news_types_id",
-													"value": "1",
-													"type": "text",
-													"disabled": true
-												},
-												{
 													"key": "user_id",
-													"value": "2",
-													"type": "text",
-													"disabled": true
+													"value": "67",
+													"type": "text"
 												}
 											]
 										},
 										"url": {
-											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/3/recovery",
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/66/addOlder",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -1825,9 +1947,10 @@
 												"laravel",
 												"my_pingtung_platform",
 												"public",
-												"news",
-												"3",
-												"recovery"
+												"socialworker_older",
+												"getSocialworkers",
+												"66",
+												"addOlder"
 											]
 										}
 									},
@@ -1843,7 +1966,7 @@
 										"header": [
 											{
 												"key": "token",
-												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyNzE0NDUsImV4cCI6MTY2NDI3NTA0NSwiZGF0YSI6eyJpZCI6MjJ9fQ.XhOHKuxyn0LouUOTcsw6hVKjpryZZw9ELAeu9_a0Xo8",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjQ2NzMsImV4cCI6MTY2NDYyODI3MywiZGF0YSI6eyJpZCI6NjV9fQ.5rGJxyGt-sFR825LsJX-qKkGa14XdXoGO3O8ElJLrdM",
 												"type": "text"
 											},
 											{
@@ -1864,7 +1987,7 @@
 											]
 										},
 										"url": {
-											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/61/manage/olders",
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/66/manage/olders",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -1875,7 +1998,7 @@
 												"public",
 												"socialworker_older",
 												"getSocialworkers",
-												"61",
+												"66",
 												"manage",
 												"olders"
 											]
@@ -1890,7 +2013,7 @@
 										"header": [
 											{
 												"key": "token",
-												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwNjQ3NDQxLCJleHAiOjE2NjA2NDg2NDEsImRhdGEiOnsiaWQiOjIyfX0.BwBNjgtTWzeeKvYhA-wkkdlaxIKF7cbIcjryEbyb2iM",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjQ2NzMsImV4cCI6MTY2NDYyODI3MywiZGF0YSI6eyJpZCI6NjV9fQ.5rGJxyGt-sFR825LsJX-qKkGa14XdXoGO3O8ElJLrdM",
 												"type": "text"
 											},
 											{
@@ -1903,33 +2026,14 @@
 											"mode": "urlencoded",
 											"urlencoded": [
 												{
-													"key": "title",
-													"value": "aa2ws",
-													"type": "text",
-													"disabled": true
-												},
-												{
-													"key": "content",
-													"value": "test233",
-													"type": "text",
-													"disabled": true
-												},
-												{
-													"key": "news_types_id",
-													"value": "1",
-													"type": "text",
-													"disabled": true
-												},
-												{
 													"key": "user_id",
-													"value": "2",
-													"type": "text",
-													"disabled": true
+													"value": "37",
+													"type": "text"
 												}
 											]
 										},
 										"url": {
-											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/3/invisible",
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/66/delOlder",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -1938,9 +2042,10 @@
 												"laravel",
 												"my_pingtung_platform",
 												"public",
-												"news",
-												"3",
-												"invisible"
+												"socialworker_older",
+												"getSocialworkers",
+												"66",
+												"delOlder"
 											]
 										}
 									},
@@ -1953,11 +2058,24 @@
 							"item": [
 								{
 									"name": "getAvailableOlders",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
 									"request": {
 										"method": "GET",
-										"header": [],
+										"header": [
+											{
+												"key": "token",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyODUxNTksImV4cCI6MTY2NDI4ODc1OSwiZGF0YSI6eyJpZCI6MjJ9fQ.2XWEa6M9racor_wlJ-Btgh3jmyldzTZoiNGloThJKS4",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
 										"url": {
-											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getOlders/getAvailableOlders",
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getOlders/available",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -1968,7 +2086,7 @@
 												"public",
 												"socialworker_older",
 												"getOlders",
-												"getAvailableOlders"
+												"available"
 											]
 										}
 									},
@@ -1976,9 +2094,16 @@
 								},
 								{
 									"name": "getSocialworkersOnOlder",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
 									"request": {
 										"method": "GET",
 										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
 										"url": {
 											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getOlders/getAvailableOlders",
 											"protocol": "http",
@@ -2004,7 +2129,7 @@
 										"header": [
 											{
 												"key": "token",
-												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyNzE0NDUsImV4cCI6MTY2NDI3NTA0NSwiZGF0YSI6eyJpZCI6MjJ9fQ.XhOHKuxyn0LouUOTcsw6hVKjpryZZw9ELAeu9_a0Xo8",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyODUxNTksImV4cCI6MTY2NDI4ODc1OSwiZGF0YSI6eyJpZCI6MjJ9fQ.2XWEa6M9racor_wlJ-Btgh3jmyldzTZoiNGloThJKS4",
 												"type": "text"
 											}
 										],
@@ -2012,8 +2137,8 @@
 											"mode": "urlencoded",
 											"urlencoded": [
 												{
-													"key": "social_id",
-													"value": "",
+													"key": "social_worker_id",
+													"value": "61",
 													"type": "text"
 												}
 											]
@@ -2047,7 +2172,7 @@
 										"header": [
 											{
 												"key": "token",
-												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyNzk5NTQsImV4cCI6MTY2NDI4MzU1NCwiZGF0YSI6eyJpZCI6MjJ9fQ.ykunsq8V4I-MRmow0NEJgZumeBWFJVSXPOt4C3lngxE",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyODUxNTksImV4cCI6MTY2NDI4ODc1OSwiZGF0YSI6eyJpZCI6MjJ9fQ.2XWEa6M9racor_wlJ-Btgh3jmyldzTZoiNGloThJKS4",
 												"type": "text"
 											},
 											{
@@ -2094,7 +2219,7 @@
 										"header": [
 											{
 												"key": "token",
-												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyODIwODksImV4cCI6MTY2NDI4NTY4OSwiZGF0YSI6eyJpZCI6MjJ9fQ.XcJxAvo514q-lUuAsE7z12enG7kqRdufX47CxPbMNs4",
+												"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyODUxNTksImV4cCI6MTY2NDI4ODc1OSwiZGF0YSI6eyJpZCI6MjJ9fQ.2XWEa6M9racor_wlJ-Btgh3jmyldzTZoiNGloThJKS4",
 												"type": "text"
 											},
 											{
@@ -2108,7 +2233,7 @@
 											"urlencoded": [
 												{
 													"key": "social_worker_id",
-													"value": "333",
+													"value": "61",
 													"type": "text",
 													"disabled": true
 												}
@@ -2147,7 +2272,7 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYwMDI5Njc4LCJleHAiOjE2NjAwMzA4NzgsImRhdGEiOnsiaWQiOjIyfX0.Ht41tiFonF5O20O1zrrOx-Q9S-zmTY6eUqZaBHbbcVk",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyOTg1MDQsImV4cCI6MTY2NDMwMjEwNCwiZGF0YSI6eyJpZCI6Njd9fQ.P3y25wrcTRSTnYGlMMsm9Hhw5sGdJ1epRueJyrLyPww",
 								"type": "text"
 							}
 						],
@@ -2181,13 +2306,19 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0dC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC9sYXJhdmVsL215X3Bpbmd0dW5nX3BsYXRmb3JtIiwiaWF0IjoxNjYxODcxMDM1LCJleHAiOjE2NjE4NzIyMzUsImRhdGEiOnsiaWQiOjIyfX0.evjM6l1Hu7y5RlJnD6A-8SWORV4VX_SUmtvcnxUTOOI",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQyMDkzODcsImV4cCI6MTY2NDIxMjk4NywiZGF0YSI6eyJpZCI6MjJ9fQ.FJL68h79yIfyH2w0lZ__RQlKKNj9QN5Tms_sVrL4lik",
 								"type": "text"
 							},
 							{
 								"key": "X-XSRF-TOKEN",
 								"value": "{{XSRF-TOKEN}}",
 								"type": "text"
+							},
+							{
+								"key": "aaa",
+								"value": "asss",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -2196,13 +2327,12 @@
 								{
 									"key": "filters",
 									"value": "aaxx",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost/laravel/my_pingtung_platform/public/getBureau",
+							"raw": "http://localhost/laravel/my_pingtung_platform/public/getRoles",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2211,7 +2341,7 @@
 								"laravel",
 								"my_pingtung_platform",
 								"public",
-								"getBureau"
+								"getRoles"
 							]
 						}
 					},
@@ -2294,7 +2424,7 @@
 					},
 					{
 						"key": "token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjM4MTY3NzcsImV4cCI6MTY2MzgxNzk3NywiZGF0YSI6eyJpZCI6MjJ9fQ.pv3xFikyYPjtqWaSekoWxMH1AK5C0AcP8UfjNBlJTYo",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0L2xhcmF2ZWwvbXlfcGluZ3R1bmdfcGxhdGZvcm0iLCJpYXQiOjE2NjQ2MjU1NzYsImV4cCI6MTY2NDYyOTE3NiwiZGF0YSI6eyJpZCI6NjR9fQ.yIdWz0WHiV7HtLHCMf-y1UWeMENQuOV50DPhnjHsCNo",
 						"type": "text"
 					}
 				],
