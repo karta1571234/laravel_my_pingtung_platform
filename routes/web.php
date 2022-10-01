@@ -86,3 +86,4 @@ Route::controller(UserController::class)->group(function () {
         Route::delete('/{id}/delSocialworker', 'delSocialworkerFromOlder');     //(5.)刪除管理長者的社工
     });
 }); // Matches The "[UserController::class]" controller
+Route::get('/getOlders', [UserController::class, 'getOlders']);

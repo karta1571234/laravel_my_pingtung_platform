@@ -559,6 +559,21 @@ class UserController extends Controller
             return response()->json(['status' => 400, 'message' => '長者移除管理失敗=>' . $th->getMessage(), 'success' => false], 400);
         }
     }
+    public function getOlders(Request $request)
+    {
+        try {
+            $token = $request->header('token');
+            $id = $this->CL->decodeToken($token);
+            $users_older = Role::find(6)->users->where('social_worker_id', $id)->flatten();
+
+            if (count($users_older) > 0) {
+                return response()->json(['status' => 200, 'message' =>  '社工查詢管理長者成功', 'result' => $users_older, 'success' => true], 200);
+            }
+            return response()->json(['status' => 202, 'message' =>  '社工查詢管理長者失敗=>目前還沒有長者', 'result' => $users_older, 'success' => true], 202);
+        } catch (Exception $e) {
+            return response()->json(['status' => 400, 'message' => '社工查詢管理長者失敗=>' . $e->getMessage(), 'success' => false], 400);
+        }
+    }
 
     //額外的function
     protected function getRoles(Request $request)
