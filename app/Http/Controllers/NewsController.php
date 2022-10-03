@@ -34,7 +34,6 @@ class NewsController extends Controller
             $news = News::find($id);
             if ($news != null) {
                 $news['type'] = $news->newstype->type;
-                $news['name'] = $news->user->name;
                 return response()->json(['status' => 200, 'message' => '取得最新消息成功', 'result' => $news, 'success' => true], 200);
             } else {
                 return response()->json(['status' => 202, 'message' => '取得最新消息失敗', 'result' => [], 'success' => false], 202);
