@@ -41,7 +41,9 @@ Route::get('/getQuestionnaireAnwser', [QuestionnaireController::class, 'getQuest
 //scale
 Route::get('/getScale/{id?}', [ScaleController::class, 'index']);   //取得量表問題
 Route::post('/getScale/{id?}/save', [ScaleController::class, 'save']);  //送出量表
-Route::get('/getScaleAnwsers', [ScaleController::class, 'getScaleAnwsers']);    //取得個人量表紀錄
+Route::get('/getScaleAnwsers/{id?}', [ScaleController::class, 'getScaleAnwsers']);    //取得個人量表紀錄
+
+
 Route::get('/getAllScaleAnswer/{id?}', [ScaleController::class, 'getAllScaleAnswer']);  //admin
 Route::get('/getUserScaleAnswer/user/{id?}', [ScaleController::class, 'getUserScaleAnswer']);  //admin
 
