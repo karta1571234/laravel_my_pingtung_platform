@@ -66,18 +66,20 @@ class ScaleController extends Controller
                 // $temp = json_decode($answer, true);
                 // return sizeof($temp);
                 if ($answer != null) {
-
                     $token = $request->header('token');
-                    $id = $this->CL->decodeToken($token);
-                    // $id = 22;
-                    $user = User::findOrFail($id);
-                    if ($user != null) {
-                        $SA = ScaleAnswer::create(['answer' => $answer, 'scale_order_id' => $scale_order->id]);
-                        $user->scaleAns()->save($SA);
+                    $social_worker_id = $this->CL->decodeToken($token);
+                    $user_social_worker = User::findOrFail($social_worker_id);
+                    //社工ID
+                    $older_id = $request->validate(['older_id' => 'int'])['older_id'];
+                    $user_older = User::findOrFail($older_id);
+                    if ($user_older->bureau_id == $user_social_worker->bureau_id) {
+                        $SA = ScaleAnswer::create(['answer' => $answer, 'scale_order_id' => $scale_order->id, 'social_worker_id' => $social_worker_id]);
+                        $user_older->scaleAns()->save($SA);
                         // belongsto 怎麼 save
                         // $scale_order->scaledetails()->save($SA);
-                        return response()->json(['status' => 200, 'message' => $user->name . '提交量表' . $scale_order->name . '成功', 'success' => true], 200);
+                        return response()->json(['status' => 200, 'message' => $user_older->name . '提交量表' . $scale_order->name . '成功', 'success' => true], 200);
                     }
+                    return response()->json(['status' => 400, 'message' => '長者與社工在不同單位', 'success' => false], 400);
                 } else {
                     return response()->json(['status' => 400, 'message' => '儲存量表失敗=>資料欄位不符合要求', 'success' => false], 400);
                 }

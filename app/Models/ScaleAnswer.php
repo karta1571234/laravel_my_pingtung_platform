@@ -13,6 +13,7 @@ class ScaleAnswer extends Model
     protected $fillable = [
         'answer',
         'scale_order_id',
+        'social_worker_id',
     ];
 
     //relation
