@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    public function getRoles()
+    public function getAllRoles()
     {
         try {
             $roles = Role::all();

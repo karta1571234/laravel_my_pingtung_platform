@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class BureauController extends Controller
 {
-    public function getBureaus()
+    public function getAllBureaus()
     {
         try {
             $bureau = Bureau::get();
