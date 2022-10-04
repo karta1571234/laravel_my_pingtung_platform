@@ -40,14 +40,14 @@ Route::post('/saveQuestionnaire', [QuestionnaireController::class, 'save']);    
 Route::get('/getQuestionnaireAnwser', [QuestionnaireController::class, 'getQuestionnaireAnwser']);  //取得問卷+答案
 //scale
 Route::get('/getScale/{id?}', [ScaleController::class, 'index']);   //取得量表問題
-Route::post('/getScale/{id?}/save', [ScaleController::class, 'save']);  //送出量表
-Route::get('/getScaleAnwsers/{id?}', [ScaleController::class, 'getScaleAnwsers']);    //取得個人量表紀錄
+Route::post('/getScale/{id?}/save', [ScaleController::class, 'save']);  //送出量表  (由社工這邊幫長者填寫older_id須放在body送出)
+Route::get('/getScaleAnwsers/{ans_id?}', [ScaleController::class, 'getScaleAnwsers']);    //取得個人量表紀錄(可送入ans_id查看詳細答案)
 
+Route::get('/getAllScaleAnswer/{id?}', [ScaleController::class, 'getAllScaleAnswer']);  //admin 取得所有量表紀錄(可送入id去查指定量表)
+Route::get('/getUserScaleAnswers/user/{id?}', [ScaleController::class, 'getUserScaleAnswers']);  //admin 取得長者所有量表紀錄(送入id去查指定長者)
+Route::get('/getUserScaleAnswers/user/{id?}/scaleAns/{ans_id?}', [ScaleController::class, 'getUserScaleAnswers']);  //admin 取得長者所有量表紀錄(送入id去查指定長者)
 
-Route::get('/getAllScaleAnswer/{id?}', [ScaleController::class, 'getAllScaleAnswer']);  //admin
-Route::get('/getUserScaleAnswer/user/{id?}', [ScaleController::class, 'getUserScaleAnswer']);  //admin
-
-//admin(衛生局)
+//admin(衛生局/衛生所)
 Route::resource('/userProfile', UserController::class)->except(['create', 'edit'])->middleware('hasroles:cheif_admin,bureau_admin,director_admin');    //使用者檔案
 Route::delete('/userProfile/{id}/disable', [UserController::class, 'disable']); //禁用使用者
 Route::post('/userProfile/{id}/recovery', [UserController::class, 'recovery']); //恢復使用者
@@ -58,8 +58,8 @@ Route::get('/getAllNews', [NewsController::class, 'getAllNews']);   //取得所�
 Route::delete('/news/{id}/invisible', [NewsController::class, 'invisible']);    //隱藏消息
 Route::post('/news/{id}/recovery', [NewsController::class, 'recovery']);    //文章可見
 
-Route::get('/getBureaus', [BureauController::class, 'getBureaus']);   //取得所有單位(新增角色是要賦予單位)
-Route::get('/getRoles', [RoleController::class, 'getRoles']);   //取得所有角色(新增角色是要賦予權限)
+Route::get('/getAllBureaus', [BureauController::class, 'getAllBureaus']);   //取得所有單位(新增角色是要賦予單位)
+Route::get('/getAllRoles', [RoleController::class, 'getAllRoles']);   //取得所有角色(新增角色是要賦予權限)
 //衛生局可調動(編輯)衛生所的人
 //衛生所可調動(編輯)社工
 
@@ -88,4 +88,5 @@ Route::controller(UserController::class)->group(function () {
         Route::delete('/{id}/delSocialworker', 'delSocialworkerFromOlder');     //(5.)刪除管理長者的社工
     });
 }); // Matches The "[UserController::class]" controller
+//社工
 Route::get('/getOlders', [UserController::class, 'getOlders']);

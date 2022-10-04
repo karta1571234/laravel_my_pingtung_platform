@@ -90,17 +90,22 @@ class ScaleController extends Controller
             return response()->json(['status' => 400, 'message' => '儲存量表失敗=>沒有這個量表', 'success' => false], 400);
         }
     }
-    public function getScaleAnwsers(Request $request, $id = null)
+    public function getScaleAnwsers(Request $request, $ans_id = null, $user_id = null)
     {
-        $token = $request->header('token');
-        $user_id = $this->CL->decodeToken($token);
-        //test
-        // $id = 22;
-        $user = User::findOrFail($user_id);
-
+        if ($user_id == null) {
+            $token = $request->header('token');
+            $user_id = $this->CL->decodeToken($token);
+            //test
+            // $user_id = 22;
+            $user = User::findOrFail($user_id);
+        } else {
+            $user = User::findOrFail($user_id);
+        }
         $scaleanwsers = $user->scaleAns;
+        // return $scaleanwsers;
+
         if (count($scaleanwsers) >= 1) {
-            if ($id == null) {
+            if ($ans_id == null) {
                 try {
                     $scaleanwsers = $this->wrapScaleAns($scaleanwsers);
                     return response()->json(['status' => 200, 'message' => '取得' . $user->name . '量表紀錄', 'result' => $scaleanwsers, 'success' => true], 200);
@@ -109,7 +114,7 @@ class ScaleController extends Controller
                 }
             } else {
                 try {
-                    $scaleanwser = $scaleanwsers->find($id);
+                    $scaleanwser = $scaleanwsers->find($ans_id);
                     $scaledetails = ScaleOrder::findOrFail($scaleanwser->scale_order_id)->scaledetails;
                     $ans = json_decode($scaleanwser->answer, true);
                     //重新建一個答案陣列
@@ -147,8 +152,8 @@ class ScaleController extends Controller
     public function getAllScaleAnswer(Request $request, $id = null)
     {
         try {
+            $arr_roles = $this->getRoles($request);
             if ($id == null) {
-                $arr_roles = $this->getRoles($request);
                 if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
                     $AllScaleAnswer = ScaleAnswer::get();
                     if (count($AllScaleAnswer) >= 1) {
@@ -190,15 +195,14 @@ class ScaleController extends Controller
                 }
                 return response()->json(['status' => 200, 'message' => '查詢所有量表紀錄成功', 'result' => $AllScaleAnswer, 'success' => true], 200);
             } else {
-                $arr_roles = $this->getRoles($request);
+                $scale_name = ScaleOrder::findOrFail($id)->name;
                 if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
-                    $OneScaleAnswser = ScaleAnswer::where('scale_order_id', $id)->get();
-                    if (count($OneScaleAnswser) >= 1) {
-                        foreach ($OneScaleAnswser as $item) {
+                    $OneScaleAnswer = ScaleAnswer::where('scale_order_id', $id)->get();
+                    if (count($OneScaleAnswer) >= 1) {
+                        $OneScaleAnswer = $this->wrapScaleAns($OneScaleAnswer);
+                        foreach ($OneScaleAnswer as $item) {
                             $item['user_name'] = $item->user->name;
-                            $answer = json_decode($item->answer);
-                            $item['answer'] = $answer;
-                            $item['scale_order_name'] = $item->scaleorder->name;
+                            unset($item['user']);
                         }
                     } else {
                         return response()->json(['status' => 202, 'message' => '查詢單一量表紀錄失敗', 'result' => [], 'success' => false], 202);
@@ -212,78 +216,82 @@ class ScaleController extends Controller
                     //從所長底下找user(也就是說看是哪個衛生所的就找衛生所底下的user)
                     $bureau = Bureau::find($bureau_id);
                     $users = $bureau->users;
-                    //重新別名為了統一$OneScaleAnswser
-                    $OneScaleAnswser = $users;
+                    if (count($users) >= 1) {
+                        $OneScaleAnswer = array();
+                        foreach ($users as $user) {
+                            $ScaleAnswer = $this->wrapScaleAns($user->scaleAns)->where('scale_order_id', $id)->flatten();
 
-                    if (count($OneScaleAnswser) >= 1) {
-                        foreach ($OneScaleAnswser as $user) {
-                            foreach ($user->scaleAns as $item) {
-                                // array_filter($item, function ($i) {
-                                //     return $i->scale_order_id == 1;
-                                // });
-                                // return $item->scale_order_id;
-                                $item['user_name'] = $item->user->name;
-                                $answer = json_decode($item->answer);
-                                $item['answer'] = $answer;
-                                $item['scale_order_name'] = $item->scaleorder->name;
+                            if (count($ScaleAnswer) < 1) {
+                                continue;
                             }
+                            foreach ($ScaleAnswer as $item) {
+                                $item['user_name'] = $item->user->name;
+                                unset($item['user']);
+                            }
+                            array_push($OneScaleAnswer, $ScaleAnswer);
                         }
                     } else {
-                        return response()->json(['status' => 202, 'message' => '查詢所有量表紀錄失敗', 'result' => [], 'success' => false], 202);
+                        return response()->json(['status' => 202, 'message' => '查詢單一' . $scale_name . '量表紀錄失敗', 'result' => [], 'success' => false], 202);
                     }
                 }
-                return response()->json(['status' => 200, 'message' => '查詢單一量表成功', 'result' => $OneScaleAnswser, 'success' => true], 200);
+                return response()->json(['status' => 200, 'message' => '查詢單一' . $scale_name . '量表成功', 'result' => $OneScaleAnswer, 'success' => true], 200);
             }
         } catch (\Throwable $th) {
             return response()->json(['status' => 400, 'message' => '查詢量表紀錄失敗=>' . $th->getMessage(), 'result' => [], 'success' => false], 400);
         }
     }
-    public function getUserScaleAnswer(Request $request, $id = null)
+    public function getUserScaleAnswers(Request $request, $id = null, $ans_id = null)
     {
         try {
-            if ($id != null) {
-                $arr_roles = $this->getRoles($request);
-                if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
-                    $user = User::findOrFail($id);
-                    $scaleAns = $user->scaleAns;
-                    if (count($scaleAns) > 0) {
-                        foreach ($scaleAns as $item) {
-                            $answer = json_decode($item->answer);
-                            $item['answer'] = $answer;
-                            $item['scale_order_name'] = $item->scaleorder;
+            $arr_roles = $this->getRoles($request);
+            if ($ans_id == null) {
+                if ($id != null) {
+                    if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
+                        $response = $this->getScaleAnwsers($request, null, $id)->getData()->result;
+                        if ($response != null) {
+                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::findOrFail($id)->name . ')量表紀錄成功', 'result' => $response, 'success' => true], 200);
                         }
-                        return response()->json(['status' => 200, 'message' => '查詢特定使用者量表紀錄成功', 'result' => $scaleAns, 'success' => 'true'], 200);
+                        return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . User::findOrFail($id)->name . '還沒有紀錄', 'result' => [], 'success' => 'true'], 202);
+                    } else {
+                        $token = $request->header('token');
+                        $uid = $this->CL->decodeToken($token);
+                        $bureau = User::findOrFail($uid)->bureau;
+                        $user = $bureau->users->find($id);
+
+                        if ($user != null) {
+                            $response = $this->getScaleAnwsers($request, null, $id)->getData()->result;
+                            if ($response != null) {
+                                return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . $user->name . ')量表紀錄成功', 'result' => $response, 'success' => true], 200);
+                            }
+                            return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . $user->name . '還沒有紀錄', 'result' => [], 'success' => true], 202);
+                        }
+                        return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗=>' . $bureau->name . '裡沒有這個人', 'result' => [], 'success' => false], 400);
                     }
-                    return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . $user->name . '還沒有紀錄', 'result' => $scaleAns, 'success' => 'true'], 202);
+                }
+                return response()->json(['status' => 400, 'message' => '未填入要找的user id', 'result' => [], 'success' => 'false'], 400);
+            } else {
+                if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
+                    $response = $this->getScaleAnwsers($request, $ans_id, $id)->getData()->result;
+                    if ($response != null) {
+                        return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::findOrFail($id)->name . ')量表紀錄+答案成功', 'result' => $response, 'success' => true], 200);
+                    }
+                    return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄+答案失敗=>目前' . User::findOrFail($id)->name . '還沒有紀錄', 'result' => [], 'success' => 'true'], 202);
                 } else {
                     $token = $request->header('token');
                     $uid = $this->CL->decodeToken($token);
                     $bureau = User::findOrFail($uid)->bureau;
-                    $users = $bureau->users;
+                    $user = $bureau->users->find($id);
 
-                    $arr_id = [];
-                    //把局裡的user_id都放進陣列，好方便去做檢查
-                    foreach ($users as $user) {
-                        array_push($arr_id, $user->id);
-                    }
-                    if (in_array($id, $arr_id)) {
-                        $user = User::findOrFail($id);
-                        $scaleAns = $user->scaleAns;
-                        if (count($scaleAns) > 0) {
-                            foreach ($scaleAns as $item) {
-                                $answer = json_decode($item->answer);
-                                $item['answer'] = $answer;
-                                $item['scale_order_name'] = $item->scaleorder;
-                            }
-                            return response()->json(['status' => 200, 'message' => '查詢特定使用者量表紀錄成功', 'result' => $scaleAns, 'success' => 'true'], 200);
+                    if ($user != null) {
+                        $response = $this->getScaleAnwsers($request, null, $id)->getData()->result;
+                        if ($response != null) {
+                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . $user->name . ')量表紀錄成功', 'result' => $response, 'success' => true], 200);
                         }
-                        return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . $user->name . '還沒有紀錄', 'result' => $scaleAns, 'success' => 'true'], 202);
-                    } else {
-                        return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗=>局裡沒有這個人', 'result' => [], 'success' => 'true'], 400);
+                        return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . $user->name . '還沒有紀錄', 'result' => [], 'success' => true], 202);
                     }
+                    return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗=>' . $bureau->name . '裡沒有這個人', 'result' => [], 'success' => false], 400);
                 }
             }
-            return response()->json(['status' => 400, 'message' => '未填入要找的user id', 'result' => [], 'success' => 'false'], 400);
         } catch (\Throwable $th) {
             return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗>' . $th->getMessage(), 'result' => [], 'success' => false], 400);
         }
