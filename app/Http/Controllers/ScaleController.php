@@ -186,8 +186,8 @@ class ScaleController extends Controller
                             foreach ($ScaleAnswer as $item) {
                                 $item['user_name'] = $item->user->name;
                                 unset($item['user']);
+                                array_push($AllScaleAnswer, $item);
                             }
-                            array_push($AllScaleAnswer, $ScaleAnswer);
                         }
                     } else {
                         return response()->json(['status' => 202, 'message' => '衛生所查詢所有量表紀錄失敗', 'result' => [], 'success' => false], 202);
