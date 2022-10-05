@@ -59,7 +59,6 @@ class ScaleDetailSeeder extends Seeder
         ScaleDetail::create(['scale_order_id' => 2, 'question' => '15.您是否覺得大部份的人都比您幸福？', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
 
         //ICOPE
-        ScaleDetail::create(['scale_order_id' => 3, 'question' => '', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
         ScaleDetail::create(['scale_order_id' => 3, 'question' => '1-1.記憶力:說出三項物品(鉛筆、汽車、書)，請長者重複，並記住。第3題後再詢問一次。', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
         ScaleDetail::create(['scale_order_id' => 3, 'question' => '1-2.定向力：詢問長者「今天的日期？」（含年月日），長者回答是否正確？', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
         ScaleDetail::create([
