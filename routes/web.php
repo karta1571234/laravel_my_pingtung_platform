@@ -53,7 +53,7 @@ Route::delete('/userProfile/{id}/disable', [UserController::class, 'disable']); 
 Route::post('/userProfile/{id}/recovery', [UserController::class, 'recovery']); //恢復使用者
 Route::get('searchUser', [UserController::class, 'search']); //搜尋使用者
 
-Route::resource('/news', NewsController::class)->except(['create', 'edit']);  //最新消息
+Route::resource('/news', NewsController::class)->except(['create', 'edit']);  //最新消息(middleware設定:除了index可以讓user存取以外其他都要擋住。 另外/news可以拿首頁(/)取代了，user可以不用getNews了)
 Route::get('/getAllNews', [NewsController::class, 'getAllNews']);   //取得所有消息
 Route::delete('/news/{id}/invisible', [NewsController::class, 'invisible']);    //隱藏消息
 Route::post('/news/{id}/recovery', [NewsController::class, 'recovery']);    //文章可見

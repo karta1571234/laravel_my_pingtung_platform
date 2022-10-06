@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use Closure;
 use Exception;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \Firebase\JWT\JWT;
 use \Firebase\JWT\Key;
+use Illuminate\Support\Facades\Route;
 
 class CheckLogin
 {
@@ -22,11 +24,20 @@ class CheckLogin
     public function handle(Request $request, Closure $next)
     {
         switch ($request->path()) {
+            case '/':
+                $this->news = new NewsController();
+                $news = $this->news->index();
+                if ($news->status() == 200) {
+                    return $news;
+                } else {
+                    return $news;
+                }
+                break;
             case 'login':
                 $this->user = new UserController();
                 $response = $this->user->login($request);
 
-                if ($response->status() == '200') {
+                if ($response->status() == 200) {
                     $user = Auth::user();
                     $token = $this->genToken($user->id);
                     $roles = $user->roles;
@@ -35,14 +46,16 @@ class CheckLogin
                     return $response;
                 }
                 break;
-                // case 'register':
-                //     $this->user = new UserController();
-                //     $response = $this->user->register($request);
+            case 'register':
+                $this->user = new UserController();
+                $response = $this->user->register($request);
 
-                //     if ($response->status() == '200') {
-                //         return response()->json(['status' => 200, 'message' => '註冊成功',  'success' => true], 200);
-                //     }
-                // break;
+                if ($response->status() == 200) {
+                    return response()->json(['status' => 200, 'message' => '註冊成功',  'success' => true], 200);
+                } else {
+                    return $response;
+                }
+                break;
 
             default:
                 //401=>未登入(認證錯誤)
