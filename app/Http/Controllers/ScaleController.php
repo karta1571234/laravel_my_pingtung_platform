@@ -134,19 +134,8 @@ class ScaleController extends Controller
                 }
             }
         } else {
-            return response()->json(['status' => 200, 'message' =>  $user->name . '還沒有填寫過的量表', 'result' => [], 'success' => true], 200);
+            return response()->json(['status' => 202, 'message' =>  $user->name . '還沒有填寫過的量表', 'result' => [], 'success' => true], 202);
         }
-    }
-    protected function wrapScaleAns($scaleanwsers)
-    {
-        foreach ($scaleanwsers as $item) {
-            unset($item['answer']);
-            $item['scale_order_name'] = $item->scaleorder->name;
-            $item['social_worker'] = User::find($item->social_worker_id)->name;
-            unset($item['scaleorder']);
-            unset($item['social_worker_id']);
-        }
-        return $scaleanwsers;
     }
     //admin
     public function getAllScaleAnswer(Request $request, $id = null)
@@ -227,8 +216,8 @@ class ScaleController extends Controller
                             foreach ($ScaleAnswer as $item) {
                                 $item['user_name'] = $item->user->name;
                                 unset($item['user']);
+                                array_push($OneScaleAnswer, $item);
                             }
-                            array_push($OneScaleAnswer, $ScaleAnswer);
                         }
                     } else {
                         return response()->json(['status' => 202, 'message' => '查詢單一' . $scale_name . '量表紀錄失敗', 'result' => [], 'success' => false], 202);
@@ -296,6 +285,7 @@ class ScaleController extends Controller
             return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗>' . $th->getMessage(), 'result' => [], 'success' => false], 400);
         }
     }
+    //function
     protected function getRoles(Request $request)
     {
         //決定bureau_id
@@ -308,5 +298,16 @@ class ScaleController extends Controller
             array_push($arr_roles, $role->name);
         }
         return $arr_roles;
+    }
+    protected function wrapScaleAns($scaleanwsers)
+    {
+        foreach ($scaleanwsers as $item) {
+            unset($item['answer']);
+            $item['scale_order_name'] = $item->scaleorder->name;
+            $item['social_worker'] = User::find($item->social_worker_id)->name;
+            unset($item['scaleorder']);
+            unset($item['social_worker_id']);
+        }
+        return $scaleanwsers;
     }
 }
