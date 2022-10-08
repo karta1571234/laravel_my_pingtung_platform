@@ -160,7 +160,6 @@ class ScaleController extends Controller
                     $token = $request->header('token');
                     $id = $this->CL->decodeToken($token);
                     $bureau_id = User::findOrFail($id)->bureau_id;
-                    // return $this->scalemodel->getScaleAnswer(0, $bureau_id);
 
                     //從所長底下找user(也就是說看是哪個衛生所的就找衛生所底下的user)
                     $bureau = Bureau::find($bureau_id);

@@ -38,11 +38,12 @@ Route::put('/updateProfile', [UserController::class, 'updateProfile']);
 Route::get('/getQuestionnaire', [QuestionnaireController::class, 'index']); //admin(目前沒有用)
 Route::post('/saveQuestionnaire', [QuestionnaireController::class, 'save']);    //保存
 Route::get('/getQuestionnaireAnwser', [QuestionnaireController::class, 'getQuestionnaireAnwser']);  //取得問卷+答案
-//scale
-Route::get('/getScale/{id?}', [ScaleController::class, 'index']);   //取得量表問題
-Route::post('/getScale/{id?}/save', [ScaleController::class, 'save']);  //送出量表  (由社工這邊幫長者填寫older_id須放在body送出)
+//scale(for長者)
 Route::get('/getScaleAnwsers/{ans_id?}', [ScaleController::class, 'getScaleAnwsers']);    //取得個人量表紀錄(可送入ans_id查看詳細答案)
-
+//scale(for社工)
+Route::get('/getScale/{id?}', [ScaleController::class, 'index']);   //取得量表(可送入id查看詳細題目)
+Route::post('/getScale/{id?}/save', [ScaleController::class, 'save']);  //送出量表  (由社工這邊幫長者填寫older_id須放在body送出)
+//scale(for衛生們)
 Route::get('/getAllScaleAnswer/{id?}', [ScaleController::class, 'getAllScaleAnswer']);  //admin 取得所有量表紀錄(可送入id去查指定量表)
 Route::get('/getUserScaleAnswers/user/{id?}', [ScaleController::class, 'getUserScaleAnswers']);  //admin 取得長者所有量表紀錄(送入id去查指定長者)
 Route::get('/getUserScaleAnswers/user/{id?}/scaleAns/{ans_id?}', [ScaleController::class, 'getUserScaleAnswers']);  //admin 取得長者所有量表紀錄(送入id去查指定長者)
