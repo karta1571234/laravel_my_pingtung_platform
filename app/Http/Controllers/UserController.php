@@ -171,9 +171,7 @@ class UserController extends Controller
             //看看哪個admin能取得哪些User
             //主admin&局長可以取得全部的User
             //所長只能取得他底下的
-            if (in_array('cheif_admin', $arr_roles)) {
-                return $this->UserModel->show($id);
-            } else if (in_array('bureau_admin', $arr_roles)) {
+            if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
                 return $this->UserModel->show($id);
             } else if (in_array('director_admin', $arr_roles)) {
                 $bureau = $user->bureau_id;
@@ -227,7 +225,7 @@ class UserController extends Controller
                 $user = User::find($uid);
 
                 $datas['bureau_id'] = $user->bureau_id;
-                $datas['role_id'] = $request->validate(['role_id' => 'int'])['role_id'];
+                $datas['role_id'] = $request->validate(['role_id' => 'int'])['role_id'];    //!!要設定只能新增5或6的權限而已
                 if ($datas['role_id'] != 5 and $datas['role_id'] != 6) {
                     return response()->json(['status' => 400, 'message' => $datas['name'] . '新增失敗=>沒有權限',  'success' => false], 400);
                 }
