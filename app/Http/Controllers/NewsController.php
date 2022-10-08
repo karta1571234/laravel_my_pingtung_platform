@@ -15,17 +15,18 @@ class NewsController extends Controller
         $this->CL = new CheckLogin();
         $this->newsmodel = new News();
     }
+    //for user
     public function index()
     {
         try {
             $news = News::get();
             if (count($news) >= 1) {
-                return response()->json(['status' => 200, 'message' => '取得所有最新消息成功', 'result' => $news, 'success' => true], 200);
+                return response()->json(['status' => 200, 'message' => '取得所有消息成功', 'result' => $news, 'success' => true], 200);
             } else {
-                return response()->json(['status' => 202, 'message' => '取得所有最新消息失敗', 'result' => [], 'success' => false], 202);
+                return response()->json(['status' => 202, 'message' => '取得所有消息失敗', 'result' => [], 'success' => false], 202);
             }
         } catch (\Throwable $th) {
-            return response()->json(['status' => 400, 'message' => '取得所有最新消息失敗=>' . $th->getMessage(), 'success' => false], 400);
+            return response()->json(['status' => 400, 'message' => '取得所有消息失敗=>' . $th->getMessage(), 'success' => false], 400);
         }
     }
     public function show($id)
@@ -34,12 +35,12 @@ class NewsController extends Controller
             $news = News::find($id);
             if ($news != null) {
                 $news['type'] = $news->newstype->type;
-                return response()->json(['status' => 200, 'message' => '取得最新消息成功', 'result' => $news, 'success' => true], 200);
+                return response()->json(['status' => 200, 'message' => '取得' . $news['type'] . '成功', 'result' => $news, 'success' => true], 200);
             } else {
-                return response()->json(['status' => 202, 'message' => '取得最新消息失敗', 'result' => [], 'success' => false], 202);
+                return response()->json(['status' => 202, 'message' => '取得' . $news['type'] . '失敗', 'result' => [], 'success' => false], 202);
             }
         } catch (\Throwable $th) {
-            return response()->json(['status' => 400, 'message' => '取得最新消息失敗=>' . $th->getMessage(), 'success' => false], 400);
+            return response()->json(['status' => 400, 'message' => '取得' . $news['type'] . '失敗=>' . $th->getMessage(), 'success' => false], 400);
         }
     }
     //admin
@@ -104,6 +105,7 @@ class NewsController extends Controller
     {
         return $this->newsmodel->recovery($id);
     }
+    //for admin
     public function getAllNews()
     {
         try {
