@@ -48,6 +48,8 @@ Route::get('/getAllScaleAnswer/{id?}', [ScaleController::class, 'getAllScaleAnsw
 Route::get('/getUserScaleAnswers/user/{id?}', [ScaleController::class, 'getUserScaleAnswers']);  //admin 取得長者所有量表紀錄(送入id去查指定長者)
 Route::get('/getUserScaleAnswers/user/{id?}/scaleAns/{ans_id?}', [ScaleController::class, 'getUserScaleAnswers']);  //admin 取得長者所有量表紀錄(送入id去查指定長者)
 
+Route::get('/getUserScaleAnswers/u/{id?}/scaleAns/{ans_id?}', [ScaleController::class, 'getUserScaleAnswers']);  //臨時(跟上面的一樣)
+
 //admin(衛生局/衛生所)
 Route::resource('/userProfile', UserController::class)->except(['create', 'edit'])->middleware('hasroles:cheif_admin,bureau_admin,director_admin');    //使用者檔案
 Route::delete('/userProfile/{id}/disable', [UserController::class, 'disable']); //禁用使用者
