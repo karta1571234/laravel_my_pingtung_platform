@@ -150,6 +150,11 @@ class ScaleController extends Controller
                         $AllScaleAnswer = $this->wrapScaleAns($AllScaleAnswer);
                         foreach ($AllScaleAnswer as $item) {
                             $item['user_name'] = $item->user->name;
+                            if ($item->user->bureau == null) {
+                                $item['user_bureau'] = "未分配";
+                            } else {
+                                $item['user_bureau'] = $item->user->bureau->name;
+                            }
                             unset($item['user']);
                         }
                     } else {
@@ -190,6 +195,11 @@ class ScaleController extends Controller
                         $OneScaleAnswer = $this->wrapScaleAns($OneScaleAnswer);
                         foreach ($OneScaleAnswer as $item) {
                             $item['user_name'] = $item->user->name;
+                            if ($item->user->bureau == null) {
+                                $item['user_bureau'] = "未分配";
+                            } else {
+                                $item['user_bureau'] = $item->user->bureau->name;
+                            }
                             unset($item['user']);
                         }
                     } else {
