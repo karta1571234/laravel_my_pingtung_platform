@@ -93,3 +93,5 @@ Route::controller(UserController::class)->group(function () {
 }); // Matches The "[UserController::class]" controller
 //社工
 Route::get('/getOlders', [UserController::class, 'getOlders']);
+
+Route::post('/testUploadImg', [NewsController::class, 'uploadImg']);    //測試用上傳路徑
