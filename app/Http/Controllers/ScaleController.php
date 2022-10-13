@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\CheckLogin;
 use App\Models\Bureau;
-use App\Models\Role;
 use App\Models\ScaleAnswer;
 use App\Models\ScaleOrder;
 use App\Models\User;
@@ -152,7 +151,7 @@ class ScaleController extends Controller
                         foreach ($AllScaleAnswer as $item) {
                             $item['user_name'] = $item->user->name;
                             if ($item->user->bureau == null) {
-                                $item['user_bureau_id'] = "未分配";
+                                $item['user_bureau_id'] = 0;    //未分配
                             } else {
                                 $item['user_bureau_id'] = $item->user->bureau->id;
                             }
@@ -197,7 +196,7 @@ class ScaleController extends Controller
                         foreach ($OneScaleAnswer as $item) {
                             $item['user_name'] = $item->user->name;
                             if ($item->user->bureau == null) {
-                                $item['user_bureau_id'] = "未分配";
+                                $item['user_bureau_id'] = 0;    //未分配
                             } else {
                                 $item['user_bureau_id'] = $item->user->bureau->id;
                             }
@@ -246,7 +245,7 @@ class ScaleController extends Controller
             if ($ans_id == null) {
                 if ($id != null) {
                     if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
-                        $response = $this->getScaleAnwsers($request, null, $id)->getData()->result;
+                        $response = $this->getScaleAnwsers($request, $ans_id, $id)->getData()->result;
                         if ($response != null) {
                             return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::findOrFail($id)->name . ')量表紀錄成功', 'result' => $response, 'success' => true], 200);
                         }
@@ -258,7 +257,7 @@ class ScaleController extends Controller
                         $user = $bureau->users->find($id);
 
                         if ($user != null) {
-                            $response = $this->getScaleAnwsers($request, null, $id)->getData()->result;
+                            $response = $this->getScaleAnwsers($request, $ans_id, $id)->getData()->result;
                             if ($response != null) {
                                 return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . $user->name . ')量表紀錄成功', 'result' => $response, 'success' => true], 200);
                             }
@@ -267,8 +266,17 @@ class ScaleController extends Controller
                         return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗=>' . $bureau->name . '裡沒有這個人', 'result' => [], 'success' => false], 400);
                     } else if (in_array('director_user', $arr_roles)) {
                         $token = $request->header('token');
-                        $id = $this->CL->decodeToken($token);
-                        $users = Role::find(6)->users->where('social_worker_id', $id)->flatten();
+                        $social_worker_id = $this->CL->decodeToken($token);
+                        $user = User::where('id', $id)->where('social_worker_id', $social_worker_id)->get();
+
+                        if (count($user) > 0) {
+                            $response = $this->getScaleAnwsers($request, $ans_id, $id)->getData()->result;
+                            if ($response != null) {
+                                return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . $user[0]->name . ')量表紀錄成功', 'result' => $response, 'success' => true], 200);
+                            }
+                            return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . $user[0]->name . '還沒有紀錄', 'result' => [], 'success' => true], 202);
+                        }
+                        return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗=>沒有這個人', 'result' => [], 'success' => false], 400);
                     }
                 }
                 return response()->json(['status' => 400, 'message' => '未填入要找的user id', 'result' => [], 'success' => 'false'], 400);
@@ -279,20 +287,33 @@ class ScaleController extends Controller
                         return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::findOrFail($id)->name . ')量表紀錄+答案成功', 'result' => $response, 'success' => true], 200);
                     }
                     return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄+答案失敗=>目前' . User::findOrFail($id)->name . '還沒有紀錄', 'result' => [], 'success' => 'true'], 202);
-                } else {
+                } else if (in_array('director_admin', $arr_roles)) {
                     $token = $request->header('token');
                     $uid = $this->CL->decodeToken($token);
                     $bureau = User::findOrFail($uid)->bureau;
                     $user = $bureau->users->find($id);
 
                     if ($user != null) {
-                        $response = $this->getScaleAnwsers($request, null, $id)->getData()->result;
+                        $response = $this->getScaleAnwsers($request, $ans_id, $id)->getData()->result;
                         if ($response != null) {
-                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . $user->name . ')量表紀錄成功', 'result' => $response, 'success' => true], 200);
+                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . $user->name . ')量表紀錄+答案成功', 'result' => $response, 'success' => true], 200);
                         }
                         return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . $user->name . '還沒有紀錄', 'result' => [], 'success' => true], 202);
                     }
-                    return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗=>' . $bureau->name . '裡沒有這個人', 'result' => [], 'success' => false], 400);
+                    return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄+答案失敗=>' . $bureau->name . '裡沒有這個人', 'result' => [], 'success' => false], 400);
+                } else if (in_array('director_user', $arr_roles)) {
+                    $token = $request->header('token');
+                    $social_worker_id = $this->CL->decodeToken($token);
+                    $user = User::where('id', $id)->where('social_worker_id', $social_worker_id)->get();
+
+                    if (count($user) > 0) {
+                        $response = $this->getScaleAnwsers($request, $ans_id, $id)->getData()->result;
+                        if ($response != null) {
+                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . $user[0]->name . ')量表紀錄成功', 'result' => $response, 'success' => true], 200);
+                        }
+                        return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . $user[0]->name . '還沒有紀錄', 'result' => [], 'success' => true], 202);
+                    }
+                    return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗=>沒有這個人', 'result' => [], 'success' => false], 400);
                 }
             }
         } catch (\Throwable $th) {

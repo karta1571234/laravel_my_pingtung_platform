@@ -37,10 +37,10 @@ class NewsController extends Controller
                 $news['type'] = $news->newstype->type;
                 return response()->json(['status' => 200, 'message' => '取得' . $news['type'] . '成功', 'result' => $news, 'success' => true], 200);
             } else {
-                return response()->json(['status' => 202, 'message' => '取得' . $news['type'] . '失敗', 'result' => [], 'success' => false], 202);
+                return response()->json(['status' => 202, 'message' => '取得消息失敗', 'result' => [], 'success' => false], 202);
             }
         } catch (\Throwable $th) {
-            return response()->json(['status' => 400, 'message' => '取得' . $news['type'] . '失敗=>' . $th->getMessage(), 'success' => false], 400);
+            return response()->json(['status' => 400, 'message' => '取得消息失敗=>' . $th->getMessage(), 'success' => false], 400);
         }
     }
     //admin
@@ -49,6 +49,10 @@ class NewsController extends Controller
         try {
             //輸入規則
             $datas = $req->validate(['title' => 'required|string', 'content' => 'required|string', 'news_types_id' => 'required']);
+            if ($req->hasFile('photo')) {
+                // $datas['img_url'] = $req->input('img_url');      //直接傳網址
+                $datas['img_url'] = $this->uploadImg($req);      //上傳圖片
+            }
             $news = News::create($datas);
             $token = $req->header('token');
             $id = $this->CL->decodeToken($token);
@@ -66,6 +70,10 @@ class NewsController extends Controller
             $old_title = $news->title;
             if ($news != null) {
                 $datas = $req->validate(['title' => 'required|string', 'content' => 'required|string', 'news_types_id' => 'required']);
+                if ($req->hasFile('photo')) {
+                    //如果有帶入新的照片再編輯
+                    $datas['img_url'] = $this->uploadImg($req);
+                }
                 $update = $news->update($datas);
                 if ($update) {
                     return response()->json(['status' => 200, 'message' => $old_title . '消息編輯成功', 'success' => true], 200);
@@ -117,6 +125,20 @@ class NewsController extends Controller
             }
         } catch (\Throwable $th) {
             return response()->json(['status' => 400, 'message' =>  '取得所有消息失敗=>' . $th->getMessage(), 'result' => [], 'success' => false], 400);
+        }
+    }
+    // public function getInvisible(){
+
+    // }
+    public function uploadImg(Request $req)
+    {
+        try {
+            if ($req->file('photo')->isValid()) {
+                $path = $req->photo->store('/image/news', 'public');
+                return 'http://localhost/laravel/my_pingtung_platform/storage/app/public/' . $path;
+            }
+        } catch (\Throwable $th) {
+            throw $th;
         }
     }
 }

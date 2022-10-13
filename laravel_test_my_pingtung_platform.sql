@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1:3306
--- 產生時間： 2022-10-09 15:22:37
+-- 產生時間： 2022-10-13 10:58:40
 -- 伺服器版本： 5.7.36
 -- PHP 版本： 8.1.0
 
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `migrations`
@@ -140,7 +140,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (74, '2022_09_15_214227_add_social_worker_id_to_users', 11),
 (75, '2022_09_27_221804_add_input_type_to_questionnaires', 12),
 (76, '2022_09_27_222838_add_input_type_to_scale_details', 12),
-(79, '2022_10_03_231524_add_social_worker_id_to_scale_answers', 13);
+(79, '2022_10_03_231524_add_social_worker_id_to_scale_answers', 13),
+(82, '2022_10_13_160529_add_img_url_to_news', 14);
 
 -- --------------------------------------------------------
 
@@ -155,43 +156,59 @@ CREATE TABLE IF NOT EXISTS `news` (
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '消息內容',
   `news_types_id` bigint(20) UNSIGNED DEFAULT NULL COMMENT '消息類型ID',
   `user_id` bigint(20) UNSIGNED DEFAULT NULL COMMENT '發文者ID',
+  `img_url` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png' COMMENT '圖片網址',
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `news`
 --
 
-INSERT INTO `news` (`id`, `title`, `content`, `news_types_id`, `user_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(14, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-26 12:26:07', '2022-08-26 12:26:07'),
-(4, 'aa', 'test233', 1, NULL, NULL, '2022-08-16 10:43:29', '2022-08-16 12:09:14'),
-(5, 'aa2ws', 'test233', 2, NULL, NULL, '2022-08-16 10:44:20', '2022-08-26 12:38:19'),
-(6, 'aa', 'test2', 1, NULL, NULL, '2022-08-16 10:45:03', '2022-08-16 12:08:35'),
-(7, 'aa', 'test233', 1, NULL, NULL, '2022-08-16 10:45:25', '2022-08-16 12:09:02'),
-(8, 'aaxx', 'test', 2, NULL, NULL, '2022-08-16 10:46:09', '2022-08-16 10:46:09'),
-(9, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-16 10:46:33', '2022-08-16 10:46:33'),
-(10, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-16 10:46:41', '2022-08-16 10:46:41'),
-(11, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-16 10:57:32', '2022-10-08 19:10:47'),
-(12, 'aa2ws33', 'test233', 2, 22, NULL, '2022-08-16 10:57:36', '2022-10-08 19:07:33'),
-(15, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-26 12:27:10', '2022-08-26 12:27:10'),
-(13, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-26 12:24:51', '2022-08-26 12:24:51'),
-(16, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-26 12:27:55', '2022-08-26 12:27:55'),
-(17, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-26 12:28:16', '2022-08-26 12:28:16'),
-(18, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-26 12:28:50', '2022-08-26 12:28:50'),
-(19, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-26 12:30:52', '2022-08-26 12:30:52'),
-(20, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-26 12:30:54', '2022-08-26 12:30:54'),
-(21, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-26 12:31:23', '2022-08-26 12:31:23'),
-(22, 'aaxxddd', 'test', 2, NULL, NULL, '2022-08-26 12:37:27', '2022-08-26 12:37:27'),
-(23, 'aaxxddd', 'test', 2, 22, NULL, '2022-08-26 12:37:36', '2022-08-26 12:37:36'),
-(24, 'aaxxddd', 'test', 2, 22, NULL, '2022-09-01 15:17:35', '2022-09-01 15:17:35'),
-(25, 'aaxxddd', 'test', 2, 22, NULL, '2022-09-01 15:18:23', '2022-09-01 15:18:23'),
-(26, 'aaxxddd', 'test', 2, 22, NULL, '2022-09-26 17:02:01', '2022-09-26 17:02:01'),
-(27, 'aaxxddd', 'test', 2, 64, NULL, '2022-10-08 19:05:10', '2022-10-08 19:05:10'),
-(29, 'eee', 'test', 2, 64, NULL, '2022-10-08 19:10:05', '2022-10-08 19:19:49'),
-(30, 'eee', 'test', 2, 64, NULL, '2022-10-08 19:18:55', '2022-10-08 19:18:55');
+INSERT INTO `news` (`id`, `title`, `content`, `news_types_id`, `user_id`, `img_url`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(14, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', '2022-10-13 08:19:50', '2022-08-26 12:26:07', '2022-08-26 12:26:07'),
+(4, 'aa', 'test233', 1, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:43:29', '2022-08-16 12:09:14'),
+(5, 'aa2ws', 'test233', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:44:20', '2022-08-26 12:38:19'),
+(6, 'aa', 'test2', 1, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:45:03', '2022-08-16 12:08:35'),
+(7, 'aa', 'test233', 1, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:45:25', '2022-08-16 12:09:02'),
+(8, 'aaxx', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:46:09', '2022-08-16 10:46:09'),
+(9, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:46:33', '2022-08-16 10:46:33'),
+(10, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:46:41', '2022-08-16 10:46:41'),
+(11, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:57:32', '2022-10-08 19:10:47'),
+(12, 'aa2ws335', 'test233', 2, 22, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:57:36', '2022-10-13 09:56:45'),
+(15, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-26 12:27:10', '2022-08-26 12:27:10'),
+(13, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-26 12:24:51', '2022-08-26 12:24:51'),
+(16, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-26 12:27:55', '2022-08-26 12:27:55'),
+(17, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-26 12:28:16', '2022-08-26 12:28:16'),
+(18, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-26 12:28:50', '2022-08-26 12:28:50'),
+(19, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-26 12:30:52', '2022-08-26 12:30:52'),
+(20, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-26 12:30:54', '2022-08-26 12:30:54'),
+(21, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-26 12:31:23', '2022-08-26 12:31:23'),
+(22, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-26 12:37:27', '2022-08-26 12:37:27'),
+(23, 'aaxxddd', 'test', 2, 22, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-26 12:37:36', '2022-08-26 12:37:36'),
+(24, 'aaxxddd', 'test', 2, 22, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-09-01 15:17:35', '2022-09-01 15:17:35'),
+(25, 'aaxxddd', 'test', 2, 22, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-09-01 15:18:23', '2022-09-01 15:18:23'),
+(26, 'aaxxddd', 'test', 2, 22, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-09-26 17:02:01', '2022-09-26 17:02:01'),
+(27, 'aaxxddd', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-08 19:05:10', '2022-10-08 19:05:10'),
+(29, 'eee', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-08 19:10:05', '2022-10-08 19:19:49'),
+(30, 'eee', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-08 19:18:55', '2022-10-08 19:18:55'),
+(31, 'eee', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-13 08:25:05', '2022-10-13 08:25:05'),
+(32, 'eee', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-13 09:24:15', '2022-10-13 09:24:15'),
+(33, 'eee', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-13 09:25:30', '2022-10-13 09:25:30'),
+(41, 'eee3', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-13 09:40:48', '2022-10-13 09:40:48'),
+(39, 'eee', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-13 09:39:54', '2022-10-13 09:39:54'),
+(40, 'eee', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-13 09:40:15', '2022-10-13 09:40:15'),
+(36, 'eee', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-13 09:33:05', '2022-10-13 09:33:05'),
+(37, 'eee', 'test', 2, 64, 'https://mobile.nkust.edu.tw/img/nkust-title.png', NULL, '2022-10-13 09:34:26', '2022-10-13 09:34:26'),
+(38, 'eee', 'test', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/q6FciW5ouJOIiORdrNtPHHhmOfZ1hSTlmiL2qbKN.png', NULL, '2022-10-13 09:35:15', '2022-10-13 09:35:15'),
+(42, 'eee3', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-13 09:54:13', '2022-10-13 09:54:13'),
+(43, 'eee35', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-13 09:54:18', '2022-10-13 09:54:18'),
+(44, 'eee35', 'test', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/4LvAM3akmgsLXonH8T1Mf72lX8pibh4jLqsvt1Py.png', NULL, '2022-10-13 09:54:36', '2022-10-13 09:54:36'),
+(45, 'eee356', 'test', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/gw3AxzT5cup49F7GJKWpsXNw8zPMwkzozPSvOM7W.png', NULL, '2022-10-13 09:54:39', '2022-10-13 09:54:39'),
+(46, 'app', 'test233', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/iirBtp98fxNPOEB8EUS7N7yViBtZJX1zhkpvdlyw.png', NULL, '2022-10-13 09:55:49', '2022-10-13 10:50:20'),
+(47, 'eee356', 'test', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/uPbX8JSchAMyGIq6nlkTi6E0PuKcmQkIn2hLhTf8.png', NULL, '2022-10-13 09:55:55', '2022-10-13 09:55:55');
 
 -- --------------------------------------------------------
 
@@ -582,7 +599,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `ID_num`, `gender`, `birth`, `addres
 (4, 'Mauricio Johns III', 'kamille74@example.com', 'E604115793', '男', '1992-08-13', '20640 Dejuan Flats\nEast Luisamouth, ID 53720-9135', 'address_1', '0964084973', '00-5262667', 3, 0, '2022-07-05 06:27:21', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'J0KSn2aymH', '2022-07-05 06:27:21', '2022-10-08 20:30:23', NULL),
 (5, 'Murl Kutch', 'amina97@example.org', 'E836338462', '女', '2001-11-02', '792 Gerhold Overpass Apt. 750\nWest Laneymouth, DE 68797', 'address_1', '0948861341', '08-1797195', 3, 0, '2022-07-05 06:27:43', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'asH9zudncW', '2022-07-05 06:27:43', '2022-08-01 13:31:18', NULL),
 (6, 'kkk', 'aa@yahoo.com', 'E210647801', '女', '2000-01-16', '隨便', '隨便', '0900', '0001', 2, 0, '2022-07-05 06:27:43', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'xThKMWfvft', '2022-07-05 06:27:43', '2022-08-01 10:30:14', NULL),
-(37, 'kevin', 'kk@ya.com.tw.tw', 'E1111111', '男', '2022-07-31', '高雄市', '高雄市', '09708888812', '07-35200000', 4, 0, NULL, '1234', NULL, '2022-08-02 13:00:17', '2022-10-08 20:31:48', NULL),
+(37, 'kevin', 'kk@ya.com.tw.tw', 'E1111111', '男', '2022-07-31', '高雄市', '高雄市', '09708888812', '07-35200000', 4, 66, NULL, '1234', NULL, '2022-08-02 13:00:17', '2022-10-13 07:16:48', NULL),
 (7, 'Matteo Luettgen', 'nolan.kenny@example.com', 'E793019282', '女', '1984-04-02', '97954 Hauck Stream Suite 148\nSouth Haileystad, RI 70010-3112', 'address_1', '0979706111', '08-2982220', 1, 0, '2022-07-05 06:27:43', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'UUtpl20Ggg', '2022-07-05 06:27:43', '2022-07-05 06:27:43', NULL),
 (8, 'Laurie Murray', 'moriah60@example.org', 'E029286634', '女', '2000-03-27', '82423 Kathleen Square\nMurazikstad, NC 84395', 'address_1', '0916039887', '08-4117062', 3, 0, '2022-07-05 06:28:48', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'FYVIjQQGxr', '2022-07-05 06:28:48', '2022-07-05 06:28:48', NULL),
 (9, 'Alena Armstrong', 'gcollins@example.net', 'E325012470', '女', '1990-03-18', '522 Seth Lake Apt. 175\nSouth Gunnerstad, MO 31616-9792', 'address_1', '0982859420', '03-1700055', 3, 0, '2022-07-05 06:28:48', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'KmyFh5aSQJ', '2022-07-05 06:28:48', '2022-07-05 06:28:48', NULL),
@@ -632,7 +649,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `ID_num`, `gender`, `birth`, `addres
 (64, 'admin1234', 'test@test.com1', 'E0101201', '男', '2022-07-31', '高雄市', '高雄市', '01143', '07-312', 4, 0, NULL, '$2y$10$/yZpQMAlxQYt.hiaVcvPkuoWyQWov3/YoxqXGqoI5RXH.g8I6wi1q', NULL, '2022-09-21 17:10:15', '2022-09-22 17:40:54', NULL),
 (65, 'admin1234', 'test@test.com2', 'E0101202', '男', '2022-07-31', '高雄市', '高雄市', '011432', '07-313', 4, 0, NULL, '$2y$10$Ym6eVcdVEjjmXLkemgsAhOfOhXBKCdkr8QvUFJc8bOD12Gml4IcXq', NULL, '2022-09-21 17:10:40', '2022-09-22 17:33:53', NULL),
 (66, 'admin1234', 'test@test.com3', 'E0101200', '男', '2022-07-31', '高雄市', '高雄市', '0114323', '07-3132', 4, 0, NULL, '$2y$10$ouVhYOcbZsTAHOeaqoJ4F.vwQhpiYeNnTS6woFJnVtx2fiTJ6MRvu', NULL, '2022-09-21 17:12:07', '2022-09-21 17:12:07', NULL),
-(67, 'admin1234', 'test@test.com4', 'E01012003', '男', '2022-07-31', '高雄市', '高雄市', '01143231', '07-31322', 4, 0, NULL, '$2y$10$3jUDuqlvMg3s/EZhHpSyvOmqygeGlKbgC4qAOEYzeHhjhZ3CL1rK2', NULL, '2022-09-21 17:12:28', '2022-10-08 20:29:37', NULL),
+(67, 'admin1234', 'test@test.com4', 'E01012003', '男', '2022-07-31', '高雄市', '高雄市', '01143231', '07-31322', 4, 66, NULL, '$2y$10$3jUDuqlvMg3s/EZhHpSyvOmqygeGlKbgC4qAOEYzeHhjhZ3CL1rK2', NULL, '2022-09-21 17:12:28', '2022-10-13 07:16:51', NULL),
 (71, 'kevin', 'kk@ya.com.tw.ta3', 'E14', '男', '2022-07-31', '高雄市', '高雄市', '097088', '07-352000', 0, 0, NULL, '$2y$10$oudpLEKHE7txZqT79FDLxOZvSnO8fRLh8O3dEiDDmtXknVpIM8q7e', NULL, '2022-09-27 14:00:30', '2022-09-27 14:00:30', NULL),
 (72, 'kevin', 'kk@ya.com.tw.ta4', 'E144', '男', '2022-07-31', '高雄市', '高雄市', '0970880', '07-352000', 0, 0, NULL, '$2y$10$2so2EDQ3.YqNnO5rz4cb9eg7QZKWD4jOy1Gtz5gDQofIGqJTFZ0SG', NULL, '2022-10-08 17:52:47', '2022-10-08 17:52:47', NULL),
 (73, 'test', 'test@test.com11', 'E010121', '男', '2022-07-31', '高雄市', '高雄市', '011231', '07-31322', 4, 0, NULL, '$2y$10$U3MuJLzo6/MJI0uUNBbd9O5gK0o2XpaaMxmW1XgCxnGJlUOMLEyW2', NULL, '2022-10-08 19:29:28', '2022-10-08 20:17:32', NULL),

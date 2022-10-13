@@ -1080,6 +1080,66 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "getUserScaleAnswers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{director_user-token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/37",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"laravel",
+										"my_pingtung_platform",
+										"public",
+										"getUserScaleAnswers",
+										"user",
+										"37"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUserScaleAnswer",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{director_user-token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/37/scaleAns/45",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"laravel",
+										"my_pingtung_platform",
+										"public",
+										"getUserScaleAnswers",
+										"user",
+										"37",
+										"scaleAns",
+										"45"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -1360,13 +1420,13 @@
 									{
 										"key": "token",
 										"value": "{{bureau_admin-token}}",
-										"type": "text",
-										"disabled": true
+										"type": "text"
 									},
 									{
 										"key": "token",
 										"value": "{{director_admin-token}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"body": {
@@ -1414,7 +1474,7 @@
 									"urlencoded": []
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllScaleAnswer/3",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllScaleAnswer/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1424,7 +1484,7 @@
 										"my_pingtung_platform",
 										"public",
 										"getAllScaleAnswer",
-										"3"
+										"2"
 									]
 								}
 							},
@@ -1438,17 +1498,17 @@
 									{
 										"key": "token",
 										"value": "{{bureau_admin-token}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									},
 									{
 										"key": "token",
 										"value": "{{director_admin-token}}",
-										"type": "text",
-										"disabled": true
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/22",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/67",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1459,7 +1519,7 @@
 										"public",
 										"getUserScaleAnswers",
 										"user",
-										"22"
+										"67"
 									]
 								}
 							},
@@ -1483,7 +1543,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/22/scaleAns/23",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/67/scaleAns/66",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1494,338 +1554,9 @@
 										"public",
 										"getUserScaleAnswers",
 										"user",
-										"22",
+										"67",
 										"scaleAns",
-										"23"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "getUserScaleAnswer Copy",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "token",
-										"value": "{{bureau_admin-token}}",
-										"type": "text"
-									},
-									{
-										"key": "token",
-										"value": "{{director_admin-token}}",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/u/22/scaleAns/23",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"laravel",
-										"my_pingtung_platform",
-										"public",
-										"getUserScaleAnswers",
-										"u",
-										"22",
-										"scaleAns",
-										"23"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "News",
-					"item": [
-						{
-							"name": "getAllNews",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "token",
-										"value": "{{bureau_admin-token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": []
-								},
-								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllNews",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"laravel",
-										"my_pingtung_platform",
-										"public",
-										"getAllNews"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "getNews",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "token",
-										"value": "{{bureau_admin-token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": []
-								},
-								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/14",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"laravel",
-										"my_pingtung_platform",
-										"public",
-										"news",
-										"14"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "postNews",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "X-XSRF-TOKEN",
-										"value": "{{XSRF-TOKEN}}",
-										"type": "text"
-									},
-									{
-										"key": "token",
-										"value": "{{bureau_admin-token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "title",
-											"value": "eee",
-											"type": "text"
-										},
-										{
-											"key": "content",
-											"value": "test",
-											"type": "text"
-										},
-										{
-											"key": "news_types_id",
-											"value": "2",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/news",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"laravel",
-										"my_pingtung_platform",
-										"public",
-										"news"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "updateNews",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "X-XSRF-TOKEN",
-										"value": "{{XSRF-TOKEN}}",
-										"type": "text"
-									},
-									{
-										"key": "token",
-										"value": "{{bureau_admin-token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "title",
-											"value": "aa2ws33",
-											"type": "text"
-										},
-										{
-											"key": "content",
-											"value": "test233",
-											"type": "text"
-										},
-										{
-											"key": "news_types_id",
-											"value": "2",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/12",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"laravel",
-										"my_pingtung_platform",
-										"public",
-										"news",
-										"12"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "deleteNews",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "X-XSRF-TOKEN",
-										"value": "{{XSRF-TOKEN}}",
-										"type": "text"
-									},
-									{
-										"key": "token",
-										"value": "{{bureau_admin-token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": []
-								},
-								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/28",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"laravel",
-										"my_pingtung_platform",
-										"public",
-										"news",
-										"28"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "invisibleNews",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "X-XSRF-TOKEN",
-										"value": "{{XSRF-TOKEN}}",
-										"type": "text"
-									},
-									{
-										"key": "token",
-										"value": "{{bureau_admin-token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": []
-								},
-								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/29/invisible",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"laravel",
-										"my_pingtung_platform",
-										"public",
-										"news",
-										"29",
-										"invisible"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "recoveryNews",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "X-XSRF-TOKEN",
-										"value": "{{XSRF-TOKEN}}",
-										"type": "text"
-									},
-									{
-										"key": "token",
-										"value": "{{bureau_admin-token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": []
-								},
-								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/news/29/recovery",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"laravel",
-										"my_pingtung_platform",
-										"public",
-										"news",
-										"29",
-										"recovery"
+										"66"
 									]
 								}
 							},
@@ -2392,7 +2123,7 @@
 											]
 										},
 										"url": {
-											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/57/olders",
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/66/olders",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -2403,7 +2134,7 @@
 												"public",
 												"socialworker_older",
 												"getSocialworkers",
-												"57",
+												"66",
 												"olders"
 											]
 										}
@@ -2437,13 +2168,13 @@
 											"urlencoded": [
 												{
 													"key": "user_id",
-													"value": "37",
+													"value": "67",
 													"type": "text"
 												}
 											]
 										},
 										"url": {
-											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/57/addOlder",
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/66/addOlder",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -2454,7 +2185,7 @@
 												"public",
 												"socialworker_older",
 												"getSocialworkers",
-												"57",
+												"66",
 												"addOlder"
 											]
 										}
@@ -2486,7 +2217,7 @@
 											"urlencoded": []
 										},
 										"url": {
-											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/57/manage/olders",
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/socialworker_older/getSocialworkers/66/manage/olders",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -2497,7 +2228,7 @@
 												"public",
 												"socialworker_older",
 												"getSocialworkers",
-												"57",
+												"66",
 												"manage",
 												"olders"
 											]
@@ -2798,125 +2529,491 @@
 					]
 				},
 				{
-					"name": "getQuestionnaire",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "token",
-								"value": "{{bureau_admin-token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": []
-						},
-						"url": {
-							"raw": "http://localhost/laravel/my_pingtung_platform/public/getQuestionnaire",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"laravel",
-								"my_pingtung_platform",
-								"public",
-								"getQuestionnaire"
+					"name": "bureau",
+					"item": [
+						{
+							"name": "News",
+							"item": [
+								{
+									"name": "getAllNews",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{bureau_admin-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllNews",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"path": [
+												"laravel",
+												"my_pingtung_platform",
+												"public",
+												"getAllNews"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getNews",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{bureau_admin-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/14",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"path": [
+												"laravel",
+												"my_pingtung_platform",
+												"public",
+												"news",
+												"14"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "postNews",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{XSRF-TOKEN}}",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "{{bureau_admin-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "title",
+													"value": "eee356",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "test",
+													"type": "text"
+												},
+												{
+													"key": "news_types_id",
+													"value": "2",
+													"type": "text"
+												},
+												{
+													"key": "photo",
+													"type": "file",
+													"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.07.25_03.51.17.581.png"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/news",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"path": [
+												"laravel",
+												"my_pingtung_platform",
+												"public",
+												"news"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "updateNews(new)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{XSRF-TOKEN}}",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "{{bureau_admin-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "title",
+													"value": "apple6",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "test",
+													"type": "text"
+												},
+												{
+													"key": "news_types_id",
+													"value": "2",
+													"type": "text"
+												},
+												{
+													"key": "photo",
+													"type": "file",
+													"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.09.02_22.07.40.261.png"
+												},
+												{
+													"key": "_method",
+													"value": "PUT",
+													"description": "add this key to let laravel use PUT method to proccess this route",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/46",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"path": [
+												"laravel",
+												"my_pingtung_platform",
+												"public",
+												"news",
+												"46"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "updateNews(old)",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{XSRF-TOKEN}}",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "{{bureau_admin-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "title",
+													"value": "app",
+													"type": "text"
+												},
+												{
+													"key": "content",
+													"value": "test233",
+													"type": "text"
+												},
+												{
+													"key": "news_types_id",
+													"value": "2",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/46",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"path": [
+												"laravel",
+												"my_pingtung_platform",
+												"public",
+												"news",
+												"46"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "deleteNews",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{XSRF-TOKEN}}",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "{{bureau_admin-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/35",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"path": [
+												"laravel",
+												"my_pingtung_platform",
+												"public",
+												"news",
+												"35"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "invisibleNews",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{XSRF-TOKEN}}",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "{{bureau_admin-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/29/invisible",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"path": [
+												"laravel",
+												"my_pingtung_platform",
+												"public",
+												"news",
+												"29",
+												"invisible"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "recoveryNews",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{XSRF-TOKEN}}",
+												"type": "text"
+											},
+											{
+												"key": "token",
+												"value": "{{bureau_admin-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": []
+										},
+										"url": {
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/29/recovery",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"path": [
+												"laravel",
+												"my_pingtung_platform",
+												"public",
+												"news",
+												"29",
+												"recovery"
+											]
+										}
+									},
+									"response": []
+								}
 							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getAllRoles",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "token",
-								"value": "{{bureau_admin-token}}",
-								"type": "text"
+						},
+						{
+							"name": "getQuestionnaire",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
 							},
-							{
-								"key": "aaa",
-								"value": "asss",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "filters",
-									"value": "aaxx",
-									"type": "text"
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{bureau_admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getQuestionnaire",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"laravel",
+										"my_pingtung_platform",
+										"public",
+										"getQuestionnaire"
+									]
 								}
-							]
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllRoles",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"laravel",
-								"my_pingtung_platform",
-								"public",
-								"getAllRoles"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getAllBureaus",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "token",
-								"value": "{{bureau_admin-token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "filters",
-									"value": "aaxx",
-									"type": "text",
-									"disabled": true
+						{
+							"name": "getAllRoles",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{bureau_admin-token}}",
+										"type": "text"
+									},
+									{
+										"key": "aaa",
+										"value": "asss",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "filters",
+											"value": "aaxx",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllRoles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"laravel",
+										"my_pingtung_platform",
+										"public",
+										"getAllRoles"
+									]
 								}
-							]
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllBureaus",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"laravel",
-								"my_pingtung_platform",
-								"public",
-								"getAllBureaus"
-							]
+						{
+							"name": "getAllBureaus",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{bureau_admin-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "filters",
+											"value": "aaxx",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllBureaus",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"laravel",
+										"my_pingtung_platform",
+										"public",
+										"getAllBureaus"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			]
 		},
@@ -2960,6 +3057,62 @@
 						"laravel",
 						"my_pingtung_platform",
 						"public"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testUploadImg",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\r",
+							"    \"XSRF-TOKEN\",\r",
+							"    decodeURIComponent(pm.cookies.get(\"XSRF-TOKEN\"))\r",
+							")\r",
+							"// pm.globals.set(\r",
+							"//     \"XSRF-TOKEN\",\r",
+							"//     decodeURIComponent(pm.cookies.get(\"XSRF-TOKEN\"))\r",
+							"// )"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{bureau_admin-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photo",
+							"description": "put ur IMG",
+							"type": "file",
+							"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.07.25_03.52.26.631.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/laravel/my_pingtung_platform/public/testUploadImg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"laravel",
+						"my_pingtung_platform",
+						"public",
+						"testUploadImg"
 					]
 				}
 			},
