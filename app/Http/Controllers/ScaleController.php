@@ -150,6 +150,7 @@ class ScaleController extends Controller
                         $AllScaleAnswer = $this->wrapScaleAns($AllScaleAnswer);
                         foreach ($AllScaleAnswer as $item) {
                             $item['user_name'] = $item->user->name;
+                            $item['user_ID_num'] = $item->user->ID_num;
                             if ($item->user->bureau == null) {
                                 $item['user_bureau_id'] = 0;    //未分配
                             } else {
@@ -178,6 +179,7 @@ class ScaleController extends Controller
                             }
                             foreach ($ScaleAnswer as $item) {
                                 $item['user_name'] = $item->user->name;
+                                $item['user_ID_num'] = $item->user->ID_num;
                                 unset($item['user']);
                                 array_push($AllScaleAnswer, $item);
                             }
@@ -195,6 +197,7 @@ class ScaleController extends Controller
                         $OneScaleAnswer = $this->wrapScaleAns($OneScaleAnswer);
                         foreach ($OneScaleAnswer as $item) {
                             $item['user_name'] = $item->user->name;
+                            $item['user_ID_num'] = $item->user->ID_num;
                             if ($item->user->bureau == null) {
                                 $item['user_bureau_id'] = 0;    //未分配
                             } else {
@@ -224,6 +227,7 @@ class ScaleController extends Controller
                             }
                             foreach ($ScaleAnswer as $item) {
                                 $item['user_name'] = $item->user->name;
+                                $item['user_ID_num'] = $item->user->ID_num;
                                 unset($item['user']);
                                 array_push($OneScaleAnswer, $item);
                             }
@@ -240,6 +244,7 @@ class ScaleController extends Controller
     }
     public function getUserScaleAnswers(Request $request, $id = null, $ans_id = null)
     {
+        //人被禁用的問題
         try {
             $arr_roles = $this->getRoles($request);
             if ($ans_id == null) {
