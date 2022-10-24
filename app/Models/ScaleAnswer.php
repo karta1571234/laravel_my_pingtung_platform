@@ -23,7 +23,7 @@ class ScaleAnswer extends Model
     }
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User')->withTrashed();
     }
     //SQL
     public function getScaleAnswer($scale_order_id = 0, $bureau_id = 0)

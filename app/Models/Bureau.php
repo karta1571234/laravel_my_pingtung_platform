@@ -12,6 +12,6 @@ class Bureau extends Model
     //relation
     public function users()
     {
-        return $this->hasMany('App\Models\User');
+        return $this->hasMany('App\Models\User')->withTrashed();
     }
 }
