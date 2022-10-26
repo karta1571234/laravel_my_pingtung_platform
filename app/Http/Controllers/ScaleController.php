@@ -99,7 +99,7 @@ class ScaleController extends Controller
             // $user_id = 22;
             $user = User::findOrFail($user_id);
         } else {
-            $user = User::findOrFail($user_id);
+            $user = User::withTrashed()->find($user_id);
         }
         $scaleanwsers = $user->scaleAns;
         // return $scaleanwsers;
@@ -209,7 +209,6 @@ class ScaleController extends Controller
                         return response()->json(['status' => 202, 'message' => '查詢單一量表紀錄失敗', 'result' => [], 'success' => false], 202);
                     }
                 } else if (in_array('director_admin', $arr_roles)) {
-                    //!衛生所還無法查"特定"的量表紀錄!(ex:鎖定主量表1)
                     //查同衛生所下的量表
                     $token = $request->header('token');
                     $uid = $this->CL->decodeToken($token);
@@ -244,7 +243,6 @@ class ScaleController extends Controller
     }
     public function getUserScaleAnswers(Request $request, $id = null, $ans_id = null)
     {
-        //人被禁用的問題
         try {
             $arr_roles = $this->getRoles($request);
             if ($ans_id == null) {
@@ -252,9 +250,9 @@ class ScaleController extends Controller
                     if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
                         $response = $this->getScaleAnwsers($request, $ans_id, $id)->getData()->result;
                         if ($response != null) {
-                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::findOrFail($id)->name . ')量表紀錄成功', 'result' => $response, 'success' => true], 200);
+                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::withTrashed()->find($id)->name . ')量表紀錄成功', 'result' => $response, 'success' => true], 200);
                         }
-                        return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . User::findOrFail($id)->name . '還沒有紀錄', 'result' => [], 'success' => 'true'], 202);
+                        return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄失敗=>目前' . User::withTrashed()->find($id)->name . '還沒有紀錄', 'result' => [], 'success' => 'true'], 202);
                     } else if (in_array('director_admin', $arr_roles)) {
                         $token = $request->header('token');
                         $uid = $this->CL->decodeToken($token);
@@ -289,9 +287,9 @@ class ScaleController extends Controller
                 if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
                     $response = $this->getScaleAnwsers($request, $ans_id, $id)->getData()->result;
                     if ($response != null) {
-                        return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::findOrFail($id)->name . ')量表紀錄+答案成功', 'result' => $response, 'success' => true], 200);
+                        return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::withTrashed()->find($id)->name . ')量表紀錄+答案成功', 'result' => $response, 'success' => true], 200);
                     }
-                    return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄+答案失敗=>目前' . User::findOrFail($id)->name . '還沒有紀錄', 'result' => [], 'success' => 'true'], 202);
+                    return response()->json(['status' => 202, 'message' => '查詢特定使用者量表紀錄+答案失敗=>目前' . User::withTrashed()->find($id)->name . '還沒有紀錄', 'result' => [], 'success' => 'true'], 202);
                 } else if (in_array('director_admin', $arr_roles)) {
                     $token = $request->header('token');
                     $uid = $this->CL->decodeToken($token);
@@ -322,7 +320,7 @@ class ScaleController extends Controller
                 }
             }
         } catch (\Throwable $th) {
-            return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗>' . $th->getMessage(), 'result' => [], 'success' => false], 400);
+            return response()->json(['status' => 400, 'message' => '查詢特定使用者量表紀錄失敗=>' . $th->getMessage(), 'result' => [], 'success' => false], 400);
         }
     }
     //function
