@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1:3306
--- 產生時間： 2022-10-13 10:58:40
+-- 產生時間： 2022-10-26 17:55:46
 -- 伺服器版本： 5.7.36
 -- PHP 版本： 8.1.0
 
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `news`
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 
 INSERT INTO `news` (`id`, `title`, `content`, `news_types_id`, `user_id`, `img_url`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (14, 'aaxxddd', 'test', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', '2022-10-13 08:19:50', '2022-08-26 12:26:07', '2022-08-26 12:26:07'),
-(4, 'aa', 'test233', 1, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:43:29', '2022-08-16 12:09:14'),
+(4, 'app', 'test233', 2, NULL, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/7gzsdn0ps3ig5pF8BieBnbXqgiGY7I0O2mRNDrnh.png', NULL, '2022-08-16 10:43:29', '2022-10-17 14:44:12'),
 (5, 'aa2ws', 'test233', 2, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:44:20', '2022-08-26 12:38:19'),
 (6, 'aa', 'test2', 1, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:45:03', '2022-08-16 12:08:35'),
 (7, 'aa', 'test233', 1, NULL, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-08-16 10:45:25', '2022-08-16 12:09:02'),
@@ -207,8 +207,11 @@ INSERT INTO `news` (`id`, `title`, `content`, `news_types_id`, `user_id`, `img_u
 (43, 'eee35', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-13 09:54:18', '2022-10-13 09:54:18'),
 (44, 'eee35', 'test', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/4LvAM3akmgsLXonH8T1Mf72lX8pibh4jLqsvt1Py.png', NULL, '2022-10-13 09:54:36', '2022-10-13 09:54:36'),
 (45, 'eee356', 'test', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/gw3AxzT5cup49F7GJKWpsXNw8zPMwkzozPSvOM7W.png', NULL, '2022-10-13 09:54:39', '2022-10-13 09:54:39'),
-(46, 'app', 'test233', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/iirBtp98fxNPOEB8EUS7N7yViBtZJX1zhkpvdlyw.png', NULL, '2022-10-13 09:55:49', '2022-10-13 10:50:20'),
-(47, 'eee356', 'test', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/uPbX8JSchAMyGIq6nlkTi6E0PuKcmQkIn2hLhTf8.png', NULL, '2022-10-13 09:55:55', '2022-10-13 09:55:55');
+(46, 'app', 'test233', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/Xq6HgICQjJwApcLqeygyUBSALk6j3XyAhs6HpjOG.png', NULL, '2022-10-13 09:55:49', '2022-10-17 13:27:52'),
+(47, 'eee356', 'test', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/uPbX8JSchAMyGIq6nlkTi6E0PuKcmQkIn2hLhTf8.png', NULL, '2022-10-13 09:55:55', '2022-10-13 09:55:55'),
+(48, 'eee356', 'test', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/J1wbbbZ4TpeMo3ZZfxvGfX9AdOr8dwXfdyjaJc4E.png', NULL, '2022-10-17 13:25:02', '2022-10-17 13:25:02'),
+(49, 'eee356', 'test', 2, 64, 'http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/1pTqeq4jlxJAs8hT9wDbb7NstkID25eEpts8bI43.png', NULL, '2022-10-24 09:46:54', '2022-10-24 09:46:54'),
+(50, 'eee356', 'test', 2, 64, 'https://cdn-icons-png.flaticon.com/512/2521/2521768.png', NULL, '2022-10-26 17:51:12', '2022-10-26 17:51:12');
 
 -- --------------------------------------------------------
 
@@ -405,7 +408,7 @@ CREATE TABLE IF NOT EXISTS `scale_answers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `scale_answers`
@@ -467,7 +470,8 @@ INSERT INTO `scale_answers` (`id`, `user_id`, `scale_order_id`, `answer`, `socia
 (63, 30, 2, '{\"1\": \"1\", \"2\": \"2\", \"3\": \"1\", \"4\": \"1\", \"5\": \"1\", \"6\": \"1\", \"7\": \"1\", \"8\": \"1\", \"9\": \"1\", \"10\": \"1\", \"11\": \"1\", \"12\": \"1\", \"13\": \"1\", \"14\": \"1\", \"15\": \"1\"}', 66, '2022-10-03 07:27:56', '2022-10-03 07:27:56'),
 (64, 67, 2, '{\"1\": \"1\", \"2\": \"2\", \"3\": \"1\", \"4\": \"1\", \"5\": \"1\", \"6\": \"1\", \"7\": \"1\", \"8\": \"1\", \"9\": \"1\", \"10\": \"1\", \"11\": \"1\", \"12\": \"1\", \"13\": \"1\", \"14\": \"1\", \"15\": \"1\"}', 66, '2022-10-03 07:37:06', '2022-10-03 07:37:06'),
 (65, 66, 2, '{\"1\": \"1\", \"2\": \"2\", \"3\": \"1\", \"4\": \"1\", \"5\": \"1\", \"6\": \"1\", \"7\": \"1\", \"8\": \"1\", \"9\": \"1\", \"10\": \"1\", \"11\": \"1\", \"12\": \"1\", \"13\": \"1\", \"14\": \"1\", \"15\": \"1\"}', 66, '2022-10-03 07:37:11', '2022-10-03 07:37:11'),
-(66, 67, 2, '{\"1\": \"1\", \"2\": \"2\", \"3\": \"1\", \"4\": \"1\", \"5\": \"1\", \"6\": \"1\", \"7\": \"1\", \"8\": \"1\", \"9\": \"1\", \"10\": \"1\", \"11\": \"1\", \"12\": \"1\", \"13\": \"1\", \"14\": \"1\", \"15\": \"1\"}', 66, '2022-10-03 07:43:40', '2022-10-03 07:43:40');
+(66, 67, 2, '{\"1\": \"1\", \"2\": \"2\", \"3\": \"1\", \"4\": \"1\", \"5\": \"1\", \"6\": \"1\", \"7\": \"1\", \"8\": \"1\", \"9\": \"1\", \"10\": \"1\", \"11\": \"1\", \"12\": \"1\", \"13\": \"1\", \"14\": \"1\", \"15\": \"1\"}', 66, '2022-10-03 07:43:40', '2022-10-03 07:43:40'),
+(69, 71, 2, '{\"1\": \"1\", \"2\": \"2\", \"3\": \"1\", \"4\": \"1\", \"5\": \"1\", \"6\": \"1\", \"7\": \"1\", \"8\": \"1\", \"9\": \"1\", \"10\": \"1\", \"11\": \"1\", \"12\": \"1\", \"13\": \"1\", \"14\": \"1\", \"15\": \"睡眠\", \"16\": \"錢\"}', 66, '2022-10-26 17:44:56', '2022-10-26 17:44:56');
 
 -- --------------------------------------------------------
 
@@ -649,8 +653,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `ID_num`, `gender`, `birth`, `addres
 (64, 'admin1234', 'test@test.com1', 'E0101201', '男', '2022-07-31', '高雄市', '高雄市', '01143', '07-312', 4, 0, NULL, '$2y$10$/yZpQMAlxQYt.hiaVcvPkuoWyQWov3/YoxqXGqoI5RXH.g8I6wi1q', NULL, '2022-09-21 17:10:15', '2022-09-22 17:40:54', NULL),
 (65, 'admin1234', 'test@test.com2', 'E0101202', '男', '2022-07-31', '高雄市', '高雄市', '011432', '07-313', 4, 0, NULL, '$2y$10$Ym6eVcdVEjjmXLkemgsAhOfOhXBKCdkr8QvUFJc8bOD12Gml4IcXq', NULL, '2022-09-21 17:10:40', '2022-09-22 17:33:53', NULL),
 (66, 'admin1234', 'test@test.com3', 'E0101200', '男', '2022-07-31', '高雄市', '高雄市', '0114323', '07-3132', 4, 0, NULL, '$2y$10$ouVhYOcbZsTAHOeaqoJ4F.vwQhpiYeNnTS6woFJnVtx2fiTJ6MRvu', NULL, '2022-09-21 17:12:07', '2022-09-21 17:12:07', NULL),
-(67, 'admin1234', 'test@test.com4', 'E01012003', '男', '2022-07-31', '高雄市', '高雄市', '01143231', '07-31322', 4, 66, NULL, '$2y$10$3jUDuqlvMg3s/EZhHpSyvOmqygeGlKbgC4qAOEYzeHhjhZ3CL1rK2', NULL, '2022-09-21 17:12:28', '2022-10-13 07:16:51', NULL),
-(71, 'kevin', 'kk@ya.com.tw.ta3', 'E14', '男', '2022-07-31', '高雄市', '高雄市', '097088', '07-352000', 0, 0, NULL, '$2y$10$oudpLEKHE7txZqT79FDLxOZvSnO8fRLh8O3dEiDDmtXknVpIM8q7e', NULL, '2022-09-27 14:00:30', '2022-09-27 14:00:30', NULL),
+(67, 'admin1234', 'test@test.com4', 'E01012003', '男', '2022-07-31', '高雄市', '高雄市', '01143231', '07-31322', 4, 66, NULL, '$2y$10$3jUDuqlvMg3s/EZhHpSyvOmqygeGlKbgC4qAOEYzeHhjhZ3CL1rK2', NULL, '2022-09-21 17:12:28', '2022-10-13 07:16:51', '2022-10-26 17:27:01'),
+(71, 'kevin', 'kk@ya.com.tw.ta3', 'E14', '男', '2022-07-31', '高雄市', '高雄市', '097088', '07-352000', 4, 66, NULL, '$2y$10$oudpLEKHE7txZqT79FDLxOZvSnO8fRLh8O3dEiDDmtXknVpIM8q7e', NULL, '2022-09-27 14:00:30', '2022-10-26 17:44:16', NULL),
 (72, 'kevin', 'kk@ya.com.tw.ta4', 'E144', '男', '2022-07-31', '高雄市', '高雄市', '0970880', '07-352000', 0, 0, NULL, '$2y$10$2so2EDQ3.YqNnO5rz4cb9eg7QZKWD4jOy1Gtz5gDQofIGqJTFZ0SG', NULL, '2022-10-08 17:52:47', '2022-10-08 17:52:47', NULL),
 (73, 'test', 'test@test.com11', 'E010121', '男', '2022-07-31', '高雄市', '高雄市', '011231', '07-31322', 4, 0, NULL, '$2y$10$U3MuJLzo6/MJI0uUNBbd9O5gK0o2XpaaMxmW1XgCxnGJlUOMLEyW2', NULL, '2022-10-08 19:29:28', '2022-10-08 20:17:32', NULL),
 (76, 'test2', 'test@test.com12', 'E070121', '男', '2022-07-31', '高雄市', '高雄市', '01120', '07-31324', 4, 59, NULL, '$2y$10$3QTBPQ6hmJiC3AH7FW85Y.g/3MdeaZ0BCTSr40VzMHwxPEEVcGFD6', NULL, '2022-10-08 19:39:46', '2022-10-08 20:29:03', NULL);
@@ -739,8 +743,8 @@ INSERT INTO `user_role` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`)
 (64, 66, 5, '2022-09-21 17:12:07', '2022-09-21 17:12:07'),
 (65, 67, 6, '2022-09-21 17:12:28', '2022-09-21 17:12:28'),
 (66, 73, 6, '2022-10-08 19:29:28', '2022-10-08 19:29:28'),
-(67, 74, 6, '2022-10-08 19:30:22', '2022-10-08 19:30:22'),
-(68, 75, 6, '2022-10-08 19:39:10', '2022-10-08 19:39:10'),
+(67, 71, 6, '2022-10-08 19:30:22', '2022-10-08 19:30:22'),
+(68, 73, 6, '2022-10-08 19:39:10', '2022-10-08 19:39:10'),
 (69, 76, 6, '2022-10-08 19:39:46', '2022-10-08 19:39:46');
 COMMIT;
 
