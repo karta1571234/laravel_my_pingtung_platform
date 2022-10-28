@@ -25,59 +25,69 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "kevin",
+									"value": "鄭繼威",
+									"description": "min:3|max:10",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "kk@ya.com.tw.ta4",
+									"value": "karta1571234@yahoo.com.tw",
+									"description": "unique",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "1234",
+									"value": "abcd1234",
+									"description": "at least 8, 1 letter ,1 number",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "abcd1234",
+									"description": "confiirmed password",
 									"type": "text"
 								},
 								{
 									"key": "ID_num",
-									"value": "E144",
+									"value": "E221788810",
+									"description": "unique|size:10",
 									"type": "text"
 								},
 								{
 									"key": "gender",
 									"value": "男",
+									"description": "(男/女/其他)",
 									"type": "text"
 								},
 								{
 									"key": "birth",
 									"value": "2022/7/31",
+									"description": "date",
 									"type": "text"
 								},
 								{
 									"key": "address_1",
 									"value": "高雄市",
+									"description": "max:60",
 									"type": "text"
 								},
 								{
 									"key": "address_2",
 									"value": "高雄市",
+									"description": "max:60",
 									"type": "text"
 								},
 								{
 									"key": "phone",
-									"value": "0970880",
+									"value": "0970802728",
+									"description": "unique|size:10",
 									"type": "text"
 								},
 								{
 									"key": "TEL",
-									"value": "07-352000",
+									"value": "07-3520820",
+									"description": "size:10",
 									"type": "text"
-								},
-								{
-									"key": "bureau_id",
-									"value": "0",
-									"type": "text",
-									"disabled": true
 								}
 							]
 						},
@@ -633,13 +643,49 @@
 									}
 								],
 								"body": {
-									"mode": "raw",
-									"raw": "{{self-profile}}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "鄭繼威",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "C108156135@nkust.edu.tw",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "女",
+											"type": "text"
+										},
+										{
+											"key": "birth",
+											"value": "2022/10/18",
+											"type": "text"
+										},
+										{
+											"key": "address_1",
+											"value": "高雄市",
+											"type": "text"
+										},
+										{
+											"key": "address_2",
+											"value": "高雄市",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0970802728",
+											"type": "text"
+										},
+										{
+											"key": "TEL",
+											"value": "07-3520028",
+											"type": "text"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "http://localhost/laravel/my_pingtung_platform/public/updateProfile",
@@ -916,12 +962,12 @@
 									"urlencoded": [
 										{
 											"key": "name",
-											"value": "admin1234",
+											"value": "葉敏毅",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "test3@example.com",
+											"value": "C108156@example.com",
 											"type": "text"
 										},
 										{
@@ -946,12 +992,12 @@
 										},
 										{
 											"key": "phone",
-											"value": "094922396",
+											"value": "0912365024",
 											"type": "text"
 										},
 										{
 											"key": "TEL",
-											"value": "07-9104966",
+											"value": "07-6354825",
 											"type": "text"
 										}
 									]
@@ -1058,7 +1104,7 @@
 										},
 										{
 											"key": "older_id",
-											"value": "67",
+											"value": "71",
 											"type": "text"
 										}
 									]
@@ -1320,12 +1366,12 @@
 									"urlencoded": [
 										{
 											"key": "name",
-											"value": "kev5676612",
+											"value": "吳岳峰",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "test3@example.com",
+											"value": "C108156142@example.com",
 											"type": "text"
 										},
 										{
@@ -1350,7 +1396,7 @@
 										},
 										{
 											"key": "phone",
-											"value": "094922396",
+											"value": "0999654550",
 											"type": "text"
 										},
 										{
@@ -1657,13 +1703,7 @@
 						},
 						{
 							"name": "newUser",
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {}
-							},
 							"request": {
-								"auth": {
-									"type": "noauth"
-								},
 								"method": "POST",
 								"header": [
 									{
@@ -1688,57 +1728,73 @@
 									"urlencoded": [
 										{
 											"key": "name",
-											"value": "test2",
+											"value": "鄭繼威",
+											"description": "min:3|max:10",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "test@test.com12",
+											"value": "karta1571234@yahoo.com.tw",
+											"description": "unique",
 											"type": "text"
 										},
 										{
 											"key": "password",
 											"value": "abcd1234",
+											"description": "at least 8, 1 letter ,1 number",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "abcd1234",
+											"description": "confiirmed password",
 											"type": "text"
 										},
 										{
 											"key": "ID_num",
-											"value": "E070121",
+											"value": "E321788810",
+											"description": "unique|size:10",
 											"type": "text"
 										},
 										{
 											"key": "gender",
 											"value": "男",
+											"description": "(男/女/其他)",
 											"type": "text"
 										},
 										{
 											"key": "birth",
 											"value": "2022/7/31",
+											"description": "date",
 											"type": "text"
 										},
 										{
 											"key": "address_1",
 											"value": "高雄市",
+											"description": "max:60",
 											"type": "text"
 										},
 										{
 											"key": "address_2",
 											"value": "高雄市",
+											"description": "max:60",
 											"type": "text"
 										},
 										{
 											"key": "phone",
-											"value": "01120",
+											"value": "0970802728",
+											"description": "unique|size:10",
 											"type": "text"
 										},
 										{
 											"key": "TEL",
-											"value": "07-31324",
+											"value": "07-3520820",
+											"description": "size:10",
 											"type": "text"
 										},
 										{
 											"key": "bureau_id",
-											"value": "4",
+											"value": "7",
 											"type": "text"
 										},
 										{
@@ -1780,13 +1836,13 @@
 									{
 										"key": "token",
 										"value": "{{bureau_admin-token}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									},
 									{
 										"key": "token",
 										"value": "{{director_admin-token}}",
-										"type": "text",
-										"disabled": true
+										"type": "text"
 									}
 								],
 								"body": {
@@ -1794,12 +1850,12 @@
 									"urlencoded": [
 										{
 											"key": "name",
-											"value": "Prof. Reina Rolfson",
+											"value": "鄭繼威",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "dhahn@example.com",
+											"value": "karta1571234@yahoo.com.tw",
 											"type": "text"
 										},
 										{
@@ -1824,12 +1880,12 @@
 										},
 										{
 											"key": "phone",
-											"value": "0999094338",
+											"value": "0980700287",
 											"type": "text"
 										},
 										{
 											"key": "TEL",
-											"value": "07-9104966",
+											"value": "07-3526608",
 											"type": "text"
 										},
 										{
@@ -1839,13 +1895,13 @@
 										},
 										{
 											"key": "role_id",
-											"value": "3",
+											"value": "6",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/3",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/100",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1855,7 +1911,7 @@
 										"my_pingtung_platform",
 										"public",
 										"userProfile",
-										"3"
+										"100"
 									]
 								}
 							},
@@ -1954,13 +2010,13 @@
 									{
 										"key": "token",
 										"value": "{{bureau_admin-token}}",
-										"type": "text",
-										"disabled": true
+										"type": "text"
 									},
 									{
 										"key": "token",
 										"value": "{{director_admin-token}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"body": {
@@ -1968,7 +2024,7 @@
 									"urlencoded": []
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/76",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/userProfile/73",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1978,7 +2034,7 @@
 										"my_pingtung_platform",
 										"public",
 										"userProfile",
-										"76"
+										"73"
 									]
 								}
 							},
@@ -2640,7 +2696,7 @@
 												{
 													"key": "photo",
 													"type": "file",
-													"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.07.25_03.51.17.581.png"
+													"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.07.25_03.52.26.631.png"
 												}
 											]
 										},
@@ -2686,7 +2742,7 @@
 												},
 												{
 													"key": "content",
-													"value": "test",
+													"value": "test1",
 													"type": "text"
 												},
 												{
@@ -2697,18 +2753,18 @@
 												{
 													"key": "photo",
 													"type": "file",
-													"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.09.02_22.07.40.261.png"
+													"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.07.25_03.51.17.581.png"
 												},
 												{
 													"key": "_method",
 													"value": "PUT",
-													"description": "add this key to let laravel use PUT method to proccess this route",
+													"description": "add this key to let laravel to use PUT method to proccess this route",
 													"type": "text"
 												}
 											]
 										},
 										"url": {
-											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/46",
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/4",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -2718,7 +2774,7 @@
 												"my_pingtung_platform",
 												"public",
 												"news",
-												"46"
+												"4"
 											]
 										}
 									},
@@ -2757,11 +2813,16 @@
 													"key": "news_types_id",
 													"value": "2",
 													"type": "text"
+												},
+												{
+													"key": "img_url",
+													"value": "http://localhost/laravel/my_pingtung_platform/storage/app/public/image/news/7gzsdn0ps3ig5pF8BieBnbXqgiGY7I0O2mRNDrnh.png",
+													"type": "text"
 												}
 											]
 										},
 										"url": {
-											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/46",
+											"raw": "http://localhost/laravel/my_pingtung_platform/public/news/4",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -2771,7 +2832,7 @@
 												"my_pingtung_platform",
 												"public",
 												"news",
-												"46"
+												"4"
 											]
 										}
 									},
@@ -3042,7 +3103,14 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "{{bureau_admin-token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"body": {
 					"mode": "urlencoded",
 					"urlencoded": []
@@ -3098,7 +3166,7 @@
 							"key": "photo",
 							"description": "put ur IMG",
 							"type": "file",
-							"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.07.25_03.52.26.631.png"
+							"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.08.27_20.33.31.414.png"
 						}
 					]
 				},
