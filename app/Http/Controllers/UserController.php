@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -59,19 +60,20 @@ class UserController extends Controller
         //輸入規則
         try {
             $datas = $request->validate([
-                'name' => 'required|string|min:3|max:20',
-                'email' => ['required', 'string', 'email', Rule::unique('users')], //要唯一
-                'password' => 'required',
-                'ID_num' => 'required|string', //唯一
-                'gender' => 'required|string',  //之後補上正規式(男,女,其他)
+                'name' => 'required|string|min:3|max:10',
+                'email' => ['required', 'string', 'email', Rule::unique('users', 'email')], //email唯一
+                'password' => ['required', 'confirmed', Password::min(8)->letters()->numbers()],    //至少8碼(1英文、1數字) + 確認密碼(password_confirmation)
+                'ID_num' => ['required', 'size:10', 'string', Rule::unique('users', 'ID_num')], //身分證唯一 + 長度=10
+                'gender' => ['required', 'string', Rule::in(['男', '女', '其他'])],  //正規式(男,女,其他)
                 'birth' => 'required|string|date', //日期格式
-                'address_1' => 'required|string',
-                'address_2' => 'required|string',
-                'phone' => ['required', 'string', Rule::unique('users')],   //電話唯一
-                'TEL' => 'required|string', //長度目前都還沒設定  //電話唯一
+                'address_1' => 'required|string|max:60',
+                'address_2' => 'required|string|max:60',
+                'phone' => ['required', 'size:10', 'string', Rule::unique('users', 'phone')],   //電話唯一 + 長度=10
+                'TEL' => 'required|size:10|string', //長度=8
             ]);
             $password = Hash::make($datas['password']);
             $datas['password'] = $password;
+
             $user = User::create($datas);
             return response()->json(['status' => 200, 'message' => $user->name . '註冊成功',  'success' => true], 200);
         } catch (Exception $e) {
@@ -102,14 +104,14 @@ class UserController extends Controller
             try {
                 //輸入規則
                 $datas = $request->validate([
-                    'name' => 'required|string|min:3|max:20',
-                    'email' => ['required', 'string', Rule::unique('users')->ignore($user->id)],   //email唯一，排除自己
-                    'gender' => 'required|string',  //之後補上正規式(男,女,其他)
+                    'name' => 'required|string|min:3|max:10',
+                    'email' => ['required', 'string', 'email', Rule::unique('users', 'email')->ignore($user->id)], //email唯一(排除自己)
+                    'gender' => ['required', 'string', Rule::in(['男', '女', '其他'])],  //正規式(男,女,其他)
                     'birth' => 'required|string|date', //日期格式
-                    'address_1' => 'required|string',
-                    'address_2' => 'required|string',
-                    'phone' => ['required', 'string', Rule::unique('users')->ignore($user->id)],   //電話唯一，排除自己
-                    'TEL' => 'required|string',
+                    'address_1' => 'required|string|max:60',
+                    'address_2' => 'required|string|max:60',
+                    'phone' => ['required', 'size:10', 'string', Rule::unique('users', 'phone')->ignore($user->id)],   //電話唯一(排除自己) + 長度=10
+                    'TEL' => 'required|size:10|string', //長度=8
                 ]);
                 $update = $user->update($datas);
                 if ($update) {
@@ -197,16 +199,16 @@ class UserController extends Controller
         //輸入規則
         try {
             $datas = $request->validate([
-                'name' => 'required|string|min:3|max:20',
-                'email' => ['required', 'string', 'email', Rule::unique('users')], //要唯一
-                'password' => 'required',
-                'ID_num' => 'required|string', //唯一
-                'gender' => 'required|string',  //之後補上正規式(男,女,其他)
+                'name' => 'required|string|min:3|max:10',
+                'email' => ['required', 'string', 'email', Rule::unique('users', 'email')], //email唯一
+                'password' => ['required', 'confirmed', Password::min(8)->letters()->numbers()],    //至少8碼、1英文、1數字 + 確認密碼(password_confirmation)
+                'ID_num' => ['required', 'size:10', 'string', Rule::unique('users', 'ID_num')], //身分證唯一 + 長度=10
+                'gender' => ['required', 'string', Rule::in(['男', '女', '其他'])],  //正規式(男,女,其他)
                 'birth' => 'required|string|date', //日期格式
-                'address_1' => 'required|string',
-                'address_2' => 'required|string',
-                'phone' => ['required', 'string', Rule::unique('users')],   //電話唯一
-                'TEL' => 'required|string', //長度目前都還沒設定  //電話唯一
+                'address_1' => 'required|string|max:60',
+                'address_2' => 'required|string|max:60',
+                'phone' => ['required', 'size:10', 'string', Rule::unique('users', 'phone')],   //電話唯一 + 長度=10
+                'TEL' => 'required|size:10|string', //長度=8
             ]);
             //密碼加密
             $password = Hash::make($datas['password']);
@@ -217,15 +219,15 @@ class UserController extends Controller
 
             //看看哪個admin能決定bureau_id
             if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
-                $datas['bureau_id'] = $request->validate(['bureau_id' => 'int'])['bureau_id'];
-                $datas['role_id'] = $request->validate(['role_id' => 'int'])['role_id'];
+                $datas['bureau_id'] = $request->validate(['bureau_id' => 'int|between:1,34'])['bureau_id']; //單位只有1~34
+                $datas['role_id'] = $request->validate(['role_id' => 'int|between:1,6'])['role_id'];    //角色只有1~6
             } else if (in_array('director_admin', $arr_roles)) {
                 $token = $request->header('token');
                 $uid = $this->CL->decodeToken($token);
                 $user = User::find($uid);
 
                 $datas['bureau_id'] = $user->bureau_id;
-                $datas['role_id'] = $request->validate(['role_id' => 'int'])['role_id'];    //!!要設定只能新增5或6的權限而已
+                $datas['role_id'] = $request->validate(['role_id' => 'int'])['role_id'];    //只能新增5或6的權限而已
                 if ($datas['role_id'] != 5 and $datas['role_id'] != 6) {
                     return response()->json(['status' => 400, 'message' => $datas['name'] . '新增失敗=>沒有權限',  'success' => false], 400);
                 }
@@ -251,14 +253,14 @@ class UserController extends Controller
             try {
                 //輸入規則
                 $datas = $request->validate([
-                    'name' => 'required|string|min:3|max:20',
-                    'email' => ['required', 'string', Rule::unique('users')->ignore($user->id)],   //email唯一，排除自己
-                    'gender' => 'required|string',  //之後補上正規式(男,女,其他)
+                    'name' => 'required|string|min:3|max:10',
+                    'email' => ['required', 'string', 'email', Rule::unique('users', 'email')->ignore($user->id)], //email唯一(排除自己)
+                    'gender' => ['required', 'string', Rule::in(['男', '女', '其他'])],  //正規式(男,女,其他)
                     'birth' => 'required|string|date', //日期格式
-                    'address_1' => 'required|string',
-                    'address_2' => 'required|string',
-                    'phone' => ['required', 'string', Rule::unique('users')->ignore($user->id)],   //電話唯一，排除自己
-                    'TEL' => 'required|string',
+                    'address_1' => 'required|string|max:60',
+                    'address_2' => 'required|string|max:60',
+                    'phone' => ['required', 'size:10', 'string', Rule::unique('users', 'phone')->ignore($user->id)],   //電話唯一(排除自己) + 長度=10
+                    'TEL' => 'required|size:10|string', //長度=8
                 ]);
 
                 //決定bureau_id
@@ -266,11 +268,15 @@ class UserController extends Controller
 
                 //看看哪個admin能決定bureau_id
                 if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
-                    $datas['bureau_id'] = $request->validate(['bureau_id' => 'int'])['bureau_id'];
-                    $datas['role_id'] = $request->validate(['role_id' => 'int'])['role_id'];
+                    $datas['bureau_id'] = $request->validate(['bureau_id' => 'int|between:1,34'])['bureau_id'];
+                    $datas['role_id'] = $request->validate(['role_id' => 'int|between:1,6'])['role_id'];
                     $user_role = UserRole::where('user_id', $id)->get();
                     $user_role[0]->update(['role_id' => $datas['role_id']]);
-                    //commit:只能改到一個role，沒辦法新增其他role，要再想辦法。ex:在role欄位存成陣列之類的or刪掉重新增??
+                    //!commit:只能改到一個role，沒辦法新增其他role，要再想辦法。ex:在role欄位存成陣列之類的or刪掉重新增??
+                } else if (in_array('director_admin', $arr_roles)) {
+                    $datas['role_id'] = $request->validate(['role_id' => 'int|between:5,6'])['role_id'];
+                    $user_role = UserRole::where('user_id', $id)->get();
+                    $user_role[0]->update(['role_id' => $datas['role_id']]);
                 }
                 $update = $user->update($datas);
 
@@ -286,7 +292,7 @@ class UserController extends Controller
             return $response;
         }
     }
-    //還沒加上roles會誤刪之後補上
+    //!還沒加上roles會誤刪之後補上
     //社工-長者也是
     public function destroy(Request $request, $id)
     {
@@ -295,8 +301,13 @@ class UserController extends Controller
         if ($status == 200) {
             try {
                 $user = User::withTrashed()->findOrFail($id);
-                $forcedelete = $user->forcedelete();
-                if ($forcedelete) {
+                $forcedelete_user = $user->forcedelete();
+                $roles = UserRole::where('user_id', $id)->get();
+                foreach ($roles as $role) {
+                    $forcedelete_role = $role->delete();
+                }
+
+                if ($forcedelete_user and $forcedelete_role) {
                     return response()->json(['status' => 200, 'message' =>  '該名使用者(' . $user->name . ')已刪除', 'success' => true], 200);
                 } else {
                     return response()->json(['status' => 202, 'message' => '不明原因<刪除失敗>', 'success' => false], 202);
