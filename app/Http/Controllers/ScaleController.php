@@ -69,8 +69,8 @@ class ScaleController extends Controller
                     $token = $request->header('token');
                     $social_worker_id = $this->CL->decodeToken($token);
                     $user_social_worker = User::findOrFail($social_worker_id);
-                    //社工ID
-                    $older_id = $request->validate(['older_id' => 'int'])['older_id'];
+                    //長者ID
+                    $older_id = $request->validate(['older_id' => 'int|required'])['older_id'];
                     $user_older = User::findOrFail($older_id);
                     if ($user_older->bureau_id == $user_social_worker->bureau_id) {
                         $SA = ScaleAnswer::create(['answer' => $answer, 'scale_order_id' => $scale_order->id, 'social_worker_id' => $social_worker_id]);
