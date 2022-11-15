@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BureauController;
+use App\Http\Controllers\CheckController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\QuestionnaireController;
 use App\Http\Controllers\RoleController;
@@ -24,7 +25,7 @@ Route::get('/test', function () {
     return response('test route', 200, ['header' => 'test route']);
 });
 Route::get('/', function () {
-    return response('首頁(衛教資訊 最新消息...)', 200);
+    return response('首頁(衛教資訊 最新消息...)(這裡測試區要首頁請加上/news)', 200);
 });
 
 //login & logout & register
@@ -36,8 +37,9 @@ Route::get('/getProfile', [UserController::class, 'getProfile']);
 Route::put('/updateProfile', [UserController::class, 'updateProfile']);
 //questionnaire
 Route::get('/getQuestionnaire', [QuestionnaireController::class, 'index']); //admin(目前沒有用)
-Route::post('/saveQuestionnaire', [QuestionnaireController::class, 'save']);    //保存
+Route::post('/saveQuestionnaire', [QuestionnaireController::class, 'save']);    //保存 (for 社工)
 Route::get('/getQuestionnaireAnwser', [QuestionnaireController::class, 'getQuestionnaireAnwser']);  //取得問卷+答案
+Route::get('/getQuestionnaireAnwser/user/{older_id}', [QuestionnaireController::class, 'getUserQuestionnarireAnswers']);  //取得問卷+答案(for 除了長者以外的)
 //scale(for長者)
 Route::get('/getScaleAnwsers/{ans_id?}', [ScaleController::class, 'getScaleAnwsers']);    //取得個人量表紀錄(可送入ans_id查看詳細答案)
 //scale(for社工)
@@ -95,3 +97,9 @@ Route::controller(UserController::class)->group(function () {
 Route::get('/getOlders', [UserController::class, 'getOlders']);
 
 Route::post('/testUploadImg', [NewsController::class, 'uploadImg']);    //測試用上傳路徑
+
+Route::controller(CheckController::class)->group(function () {
+    Route::get('/checkPhone', 'checkPhone');
+    Route::get('/checkID', 'checkID');
+    Route::get('/checkEmail', 'checkEmail');
+});
