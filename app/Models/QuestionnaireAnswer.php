@@ -11,5 +11,6 @@ class QuestionnaireAnswer extends Model
 
     protected $fillable = [
         'answer',
+        'social_worker_id',
     ];
 }
