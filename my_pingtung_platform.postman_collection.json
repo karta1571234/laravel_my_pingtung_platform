@@ -26,12 +26,12 @@
 								{
 									"key": "name",
 									"value": "鄭繼威",
-									"description": "min:3|max:10",
+									"description": "min:2|max:10",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "karta1571234@yahoo.com.tw",
+									"value": "karta1571234@yahoo.com.tw2",
 									"description": "unique",
 									"type": "text"
 								},
@@ -49,8 +49,8 @@
 								},
 								{
 									"key": "ID_num",
-									"value": "E221788810",
-									"description": "unique|size:10",
+									"value": "E221788812",
+									"description": "unique|size:10|regex:[A-Z]{1}[1-2]{1}[0-9]{8}",
 									"type": "text"
 								},
 								{
@@ -79,14 +79,14 @@
 								},
 								{
 									"key": "phone",
-									"value": "0970802728",
-									"description": "unique|size:10",
+									"value": "0970802722",
+									"description": "unique|size:10|regex:09[0-9]{8}",
 									"type": "text"
 								},
 								{
 									"key": "TEL",
 									"value": "07-3520820",
-									"description": "size:10",
+									"description": "size:10|regex:0[0-9]{1}-[0-9]{7}",
 									"type": "text"
 								}
 							]
@@ -709,48 +709,6 @@
 					"name": "Questionnaire",
 					"item": [
 						{
-							"name": "saveQuestionnaire",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "X-XSRF-TOKEN",
-										"value": "{{XSRF-TOKEN}}",
-										"type": "text"
-									},
-									{
-										"key": "token",
-										"value": "{{user-token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "answer",
-											"value": "{\n    \"1\": \"7\",\n    \"2\": \"2\",\n    \"3\": \"3\",\n    \"4\": \"1\",\n    \"5\": \"1\",\n    \"6\": \"1\",\n    \"7\": \"1\",\n    \"8\": \"1\",\n    \"9\": \"1\",\n    \"10\": \"1\",\n    \"11\": \"1\",\n    \"12\": \"1\",\n    \"13\": \"1\",\n    \"14\": \"1\",\n    \"15\": \"1\",\n    \"16\": \"2\",\n    \"17\": \"1\",\n    \"18\": \"1\",\n    \"19\": \"1\",\n    \"20\": \"1\",\n    \"21\": \"1\",\n    \"22\": \"2\"\n}",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/saveQuestionnaire",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"laravel",
-										"my_pingtung_platform",
-										"public",
-										"saveQuestionnaire"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "getQuestionnaireAnwser",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1190,6 +1148,94 @@
 					]
 				},
 				{
+					"name": "Questionnaire",
+					"item": [
+						{
+							"name": "getQuestionnaireAnwser",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{director_user-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getQuestionnaireAnwser/user/71",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"laravel",
+										"my_pingtung_platform",
+										"public",
+										"getQuestionnaireAnwser",
+										"user",
+										"71"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "saveQuestionnaire",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{XSRF-TOKEN}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{director_user-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "answer",
+											"value": "{\n    \"1\": \"7\",\n    \"2\": \"2\",\n    \"3\": \"3\",\n    \"4\": \"1\",\n    \"5\": \"1\",\n    \"6\": \"1\",\n    \"7\": \"1\",\n    \"8\": \"1\",\n    \"9\": \"1\",\n    \"10\": \"1\",\n    \"11\": \"1\",\n    \"12\": \"1\",\n    \"13\": \"1\",\n    \"14\": \"1\",\n    \"15\": \"1\",\n    \"16\": \"2\",\n    \"17\": \"1\",\n    \"18\": \"1\",\n    \"19\": \"1\",\n    \"20\": \"1\",\n    \"21\": \"1\",\n    \"22\": \"2\"\n}",
+											"type": "text"
+										},
+										{
+											"key": "older_id",
+											"value": "71",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/saveQuestionnaire",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"laravel",
+										"my_pingtung_platform",
+										"public",
+										"saveQuestionnaire"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "getOlders",
 					"event": [
 						{
@@ -1611,6 +1657,53 @@
 					]
 				},
 				{
+					"name": "Questionnaire",
+					"item": [
+						{
+							"name": "getQuestionnaireAnwser",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{bureau_admin-token}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "token",
+										"value": "{{director_user-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getQuestionnaireAnwser/user/71",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"laravel",
+										"my_pingtung_platform",
+										"public",
+										"getQuestionnaireAnwser",
+										"user",
+										"71"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "User Profile",
 					"item": [
 						{
@@ -1729,7 +1822,7 @@
 										{
 											"key": "name",
 											"value": "鄭繼威",
-											"description": "min:3|max:10",
+											"description": "min:2|max:10",
 											"type": "text"
 										},
 										{
@@ -1753,7 +1846,7 @@
 										{
 											"key": "ID_num",
 											"value": "E321788810",
-											"description": "unique|size:10",
+											"description": "unique|size:10|regex:[A-Z]{1}[1-2]{1}[0-9]{8}",
 											"type": "text"
 										},
 										{
@@ -1783,23 +1876,25 @@
 										{
 											"key": "phone",
 											"value": "0970802728",
-											"description": "unique|size:10",
+											"description": "unique|size:10|regex:/09[0-9]{8}",
 											"type": "text"
 										},
 										{
 											"key": "TEL",
 											"value": "07-3520820",
-											"description": "size:10",
+											"description": "size:10|regex:0[0-9]{1}-[0-9]{7}",
 											"type": "text"
 										},
 										{
 											"key": "bureau_id",
 											"value": "7",
+											"description": "int|1~34",
 											"type": "text"
 										},
 										{
 											"key": "role_id",
 											"value": "6",
+											"description": "int|1~6",
 											"type": "text"
 										}
 									]
@@ -3079,6 +3174,203 @@
 			]
 		},
 		{
+			"name": "check",
+			"item": [
+				{
+					"name": "checkPhone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\r",
+									"    \"XSRF-TOKEN\",\r",
+									"    decodeURIComponent(pm.cookies.get(\"XSRF-TOKEN\"))\r",
+									")\r",
+									"// pm.globals.set(\r",
+									"//     \"XSRF-TOKEN\",\r",
+									"//     decodeURIComponent(pm.cookies.get(\"XSRF-TOKEN\"))\r",
+									"// )"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{bureau_admin-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "phone",
+									"value": "0970802728",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/laravel/my_pingtung_platform/public/checkPhone?phone=0970802777",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laravel",
+								"my_pingtung_platform",
+								"public",
+								"checkPhone"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "0970802777"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\r",
+									"    \"XSRF-TOKEN\",\r",
+									"    decodeURIComponent(pm.cookies.get(\"XSRF-TOKEN\"))\r",
+									")\r",
+									"// pm.globals.set(\r",
+									"//     \"XSRF-TOKEN\",\r",
+									"//     decodeURIComponent(pm.cookies.get(\"XSRF-TOKEN\"))\r",
+									"// )"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{bureau_admin-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "phone",
+									"value": "0970802728",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/laravel/my_pingtung_platform/public/checkID?ID_num=A170802712",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laravel",
+								"my_pingtung_platform",
+								"public",
+								"checkID"
+							],
+							"query": [
+								{
+									"key": "ID_num",
+									"value": "A170802712"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkEmail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\r",
+									"    \"XSRF-TOKEN\",\r",
+									"    decodeURIComponent(pm.cookies.get(\"XSRF-TOKEN\"))\r",
+									")\r",
+									"// pm.globals.set(\r",
+									"//     \"XSRF-TOKEN\",\r",
+									"//     decodeURIComponent(pm.cookies.get(\"XSRF-TOKEN\"))\r",
+									"// )"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{bureau_admin-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "phone",
+									"value": "0970802728",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/laravel/my_pingtung_platform/public/checkEmail?email=ccc@test.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"laravel",
+								"my_pingtung_platform",
+								"public",
+								"checkEmail"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "ccc@test.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "home",
 			"event": [
 				{
@@ -3107,8 +3399,7 @@
 					{
 						"key": "token",
 						"value": "{{bureau_admin-token}}",
-						"type": "text",
-						"disabled": true
+						"type": "text"
 					}
 				],
 				"body": {
