@@ -24,15 +24,16 @@ class CheckLogin
     public function handle(Request $request, Closure $next)
     {
         switch ($request->path()) {
-            case '/':
-                $this->news = new NewsController();
-                $news = $this->news->index();
-                if ($news->status() == 200) {
-                    return $news;
-                } else {
-                    return $news;
-                }
-                break;
+                // 首頁不用登入(暫不用)
+                // case '/':
+                //     $this->news = new NewsController();
+                //     $news = $this->news->index();
+                //     if ($news->status() == 200) {
+                //         return $news;
+                //     } else {
+                //         return $news;
+                //     }
+                //     break;
             case 'login':
                 $this->user = new UserController();
                 $response = $this->user->login($request);
