@@ -60,16 +60,16 @@ class UserController extends Controller
         //輸入規則
         try {
             $datas = $request->validate([
-                'name' => 'required|string|min:3|max:10',
+                'name' => 'required|string|min:2|max:10',
                 'email' => ['required', 'string', 'email', Rule::unique('users', 'email')], //email唯一
                 'password' => ['required', 'confirmed', Password::min(8)->letters()->numbers()],    //至少8碼(1英文、1數字) + 確認密碼(password_confirmation)
-                'ID_num' => ['required', 'size:10', 'string', Rule::unique('users', 'ID_num')], //身分證唯一 + 長度=10
+                'ID_num' => ['required', 'size:10', 'string', 'regex:/^[A-Z]{1}[1-2]{1}[0-9]{8}$/', Rule::unique('users', 'ID_num')], //身分證唯一 + 長度=10 + 正規表示式(開頭英文後面數字)
                 'gender' => ['required', 'string', Rule::in(['男', '女', '其他'])],  //正規式(男,女,其他)
                 'birth' => 'required|string|date', //日期格式
                 'address_1' => 'required|string|max:60',
                 'address_2' => 'required|string|max:60',
-                'phone' => ['required', 'size:10', 'string', Rule::unique('users', 'phone')],   //電話唯一 + 長度=10
-                'TEL' => 'required|size:10|string', //長度=8
+                'phone' => ['required', 'size:10', 'string', 'regex:/09[0-9]{8}/i', Rule::unique('users', 'phone')],   //電話唯一 + 長度=10
+                'TEL' => 'required|size:10|string|regex:/^0[0-9]{1}-[0-9]{7}$/', //長度=10
             ]);
             $password = Hash::make($datas['password']);
             $datas['password'] = $password;
@@ -104,14 +104,14 @@ class UserController extends Controller
             try {
                 //輸入規則
                 $datas = $request->validate([
-                    'name' => 'required|string|min:3|max:10',
+                    'name' => 'required|string|min:2|max:10',
                     'email' => ['required', 'string', 'email', Rule::unique('users', 'email')->ignore($user->id)], //email唯一(排除自己)
                     'gender' => ['required', 'string', Rule::in(['男', '女', '其他'])],  //正規式(男,女,其他)
                     'birth' => 'required|string|date', //日期格式
                     'address_1' => 'required|string|max:60',
                     'address_2' => 'required|string|max:60',
-                    'phone' => ['required', 'size:10', 'string', Rule::unique('users', 'phone')->ignore($user->id)],   //電話唯一(排除自己) + 長度=10
-                    'TEL' => 'required|size:10|string', //長度=8
+                    'phone' => ['required', 'size:10', 'string', 'regex:/09[0-9]{8}/i', Rule::unique('users', 'phone')->ignore($user->id)],   //電話唯一(排除自己) + 長度=10
+                    'TEL' => 'required|size:10|string|regex:/^0[0-9]{1}-[0-9]{7}$/', //長度=10
                 ]);
                 $update = $user->update($datas);
                 if ($update) {
@@ -199,16 +199,16 @@ class UserController extends Controller
         //輸入規則
         try {
             $datas = $request->validate([
-                'name' => 'required|string|min:3|max:10',
+                'name' => 'required|string|min:2|max:10',
                 'email' => ['required', 'string', 'email', Rule::unique('users', 'email')], //email唯一
                 'password' => ['required', 'confirmed', Password::min(8)->letters()->numbers()],    //至少8碼、1英文、1數字 + 確認密碼(password_confirmation)
-                'ID_num' => ['required', 'size:10', 'string', Rule::unique('users', 'ID_num')], //身分證唯一 + 長度=10
+                'ID_num' => ['required', 'size:10', 'string', 'regex:/^[A-Z]{1}[1-2]{1}[0-9]{8}$/', Rule::unique('users', 'ID_num')], //身分證唯一 + 長度=10 + 正規表示式(開頭英文後面數字)
                 'gender' => ['required', 'string', Rule::in(['男', '女', '其他'])],  //正規式(男,女,其他)
                 'birth' => 'required|string|date', //日期格式
                 'address_1' => 'required|string|max:60',
                 'address_2' => 'required|string|max:60',
-                'phone' => ['required', 'size:10', 'string', Rule::unique('users', 'phone')],   //電話唯一 + 長度=10
-                'TEL' => 'required|size:10|string', //長度=8
+                'phone' => ['required', 'size:10', 'string', 'regex:/09[0-9]{8}/i', Rule::unique('users', 'phone')],   //電話唯一 + 長度=10
+                'TEL' => 'required|size:10|string|regex:/^0[0-9]{1}-[0-9]{7}$/', //長度=10
             ]);
             //密碼加密
             $password = Hash::make($datas['password']);
@@ -253,14 +253,14 @@ class UserController extends Controller
             try {
                 //輸入規則
                 $datas = $request->validate([
-                    'name' => 'required|string|min:3|max:10',
+                    'name' => 'required|string|min:2|max:10',
                     'email' => ['required', 'string', 'email', Rule::unique('users', 'email')->ignore($user->id)], //email唯一(排除自己)
                     'gender' => ['required', 'string', Rule::in(['男', '女', '其他'])],  //正規式(男,女,其他)
                     'birth' => 'required|string|date', //日期格式
                     'address_1' => 'required|string|max:60',
                     'address_2' => 'required|string|max:60',
-                    'phone' => ['required', 'size:10', 'string', Rule::unique('users', 'phone')->ignore($user->id)],   //電話唯一(排除自己) + 長度=10
-                    'TEL' => 'required|size:10|string', //長度=8
+                    'phone' => ['required', 'size:10', 'string', 'regex:/09[0-9]{8}/i', Rule::unique('users', 'phone')->ignore($user->id)],   //電話唯一(排除自己) + 長度=10
+                    'TEL' => 'required|size:10|string|regex:/^0[0-9]{1}-[0-9]{7}$/', //長度=10
                 ]);
 
                 //決定bureau_id
