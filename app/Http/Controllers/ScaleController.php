@@ -95,14 +95,12 @@ class ScaleController extends Controller
         if ($user_id == null) {
             $token = $request->header('token');
             $user_id = $this->CL->decodeToken($token);
-            //test
-            // $user_id = 22;
+
             $user = User::findOrFail($user_id);
         } else {
             $user = User::withTrashed()->find($user_id);
         }
         $scaleanwsers = $user->scaleAns;
-        // return $scaleanwsers;
 
         if (count($scaleanwsers) >= 1) {
             if ($ans_id == null) {
@@ -149,6 +147,11 @@ class ScaleController extends Controller
                         //查全部的人的量表
                         $AllScaleAnswer = $this->wrapScaleAns($AllScaleAnswer);
                         foreach ($AllScaleAnswer as $item) {
+                            if ($item->user == null) {
+                                $item['user_name'] = 'deleted';
+                                unset($item['user']);
+                                continue;
+                            }
                             $item['user_name'] = $item->user->name;
                             $item['user_ID_num'] = $item->user->ID_num;
                             if ($item->user->bureau == null) {
@@ -188,7 +191,7 @@ class ScaleController extends Controller
                         return response()->json(['status' => 202, 'message' => '衛生所查詢所有量表紀錄失敗', 'result' => [], 'success' => false], 202);
                     }
                 }
-                return response()->json(['status' => 200, 'message' => '查詢所有量表紀錄成功', 'result' => $AllScaleAnswer, 'success' => true], 200);
+                return response()->json(['status' => 200, 'count' => count($AllScaleAnswer),     'message' => '查詢所有量表紀錄成功', 'result' => $AllScaleAnswer, 'success' => true], 200);
             } else {
                 $scale_name = ScaleOrder::findOrFail($id)->name;
                 if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
@@ -196,6 +199,11 @@ class ScaleController extends Controller
                     if (count($OneScaleAnswer) >= 1) {
                         $OneScaleAnswer = $this->wrapScaleAns($OneScaleAnswer);
                         foreach ($OneScaleAnswer as $item) {
+                            if ($item->name == null) {
+                                $item['user_name'] = 'deleted';
+                                unset($item['user']);
+                                continue;
+                            }
                             $item['user_name'] = $item->user->name;
                             $item['user_ID_num'] = $item->user->ID_num;
                             if ($item->user->bureau == null) {
