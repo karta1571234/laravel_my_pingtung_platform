@@ -127,7 +127,7 @@ class QuestionnaireController extends Controller
                         #append(push)進陣列裡
                         array_push($json_decode_questionnaires, $json_decode_key_values);
                     }
-                    return response()->json(['status' => 200, 'message' => '取得問卷+答案成功', 'result' => $json_decode_questionnaires, 'success' => true], 200);
+                    return response()->json(['status' => 200, 'message' => '取得問卷+答案成功', 'answers' => $answers, 'result' => $json_decode_questionnaires, 'success' => true], 200);   //!unnecessary key of answer is convenice for frontend
                 }
                 return response()->json(['status' => 202, 'message' => '查詢問卷失敗', 'result' => [], 'success' => true], 202);
             } else {
@@ -145,8 +145,9 @@ class QuestionnaireController extends Controller
                 $arr_roles = $this->getRoles($request);
                 if (in_array('cheif_admin', $arr_roles) or in_array('bureau_admin', $arr_roles)) {
                     $QA = $this->getQuestionnaireAnwser($request, $older_id)->getData()->result;
+                    $answers = $this->getQuestionnaireAnwser($request, $older_id)->getData()->answers;  //unnecessary
                     if ($QA != null) {
-                        return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::withTrashed()->find($older_id)->name . ')問卷紀錄成功', 'result' => $QA, 'success' => true], 200);
+                        return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::withTrashed()->find($older_id)->name . ')問卷紀錄成功', 'answer' => $answers, 'result' => $QA, 'success' => true], 200);
                     }
                     return response()->json(['status' => 202, 'message' => '查詢特定使用者問卷紀錄失敗=>目前' . User::withTrashed()->find($older_id)->name . '還沒有紀錄', 'result' => [], 'success' => 'true'], 202);
                 } else if (in_array('director_admin', $arr_roles)) {
@@ -157,8 +158,9 @@ class QuestionnaireController extends Controller
 
                     if ($user != null) {
                         $QA = $this->getQuestionnaireAnwser($request, $older_id)->getData()->result;
+                        $answers = $this->getQuestionnaireAnwser($request, $older_id)->getData()->answers;  //unnecessary
                         if ($QA != null) {
-                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::withTrashed()->find($older_id)->name . ')問卷紀錄成功', 'result' => $QA, 'success' => true], 200);
+                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . User::withTrashed()->find($older_id)->name . ')問卷紀錄成功', 'answer' => $answers, 'result' => $QA, 'success' => true], 200);
                         }
                         return response()->json(['status' => 202, 'message' => '查詢特定使用者問卷紀錄失敗=>目前' . User::withTrashed()->find($older_id)->name . '還沒有紀錄', 'result' => [], 'success' => 'true'], 202);
                     }
@@ -170,8 +172,9 @@ class QuestionnaireController extends Controller
 
                     if ($older->social_worker_id == $social_worker_id) {
                         $QA = $this->getQuestionnaireAnwser($request, $older_id)->getData()->result;
+                        $answers = $this->getQuestionnaireAnwser($request, $older_id)->getData()->answers;
                         if ($QA != null) {
-                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . $older->name . ')問卷紀錄成功', 'result' => $QA, 'success' => true], 200);
+                            return response()->json(['status' => 200, 'message' => '查詢特定使用者(' . $older->name . ')問卷紀錄成功', 'answer' => $answers, 'result' => $QA, 'success' => true], 200);
                         }
                         return response()->json(['status' => 202, 'message' => '查詢特定使用者問卷紀錄失敗=>目前' . $older->name . '還沒有紀錄', 'result' => [], 'success' => true], 202);
                     }
