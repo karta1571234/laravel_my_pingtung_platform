@@ -21,8 +21,8 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "name",
 									"value": "鄭繼威",
@@ -31,7 +31,7 @@
 								},
 								{
 									"key": "email",
-									"value": "karta1571234@yahoo.com.tw2",
+									"value": "karta1571234@yahoo.com.tw3",
 									"description": "unique",
 									"type": "text"
 								},
@@ -49,7 +49,7 @@
 								},
 								{
 									"key": "ID_num",
-									"value": "E221788812",
+									"value": "E221788845",
 									"description": "unique|size:10|regex:[A-Z]{1}[1-2]{1}[0-9]{8}",
 									"type": "text"
 								},
@@ -79,7 +79,7 @@
 								},
 								{
 									"key": "phone",
-									"value": "0970802722",
+									"value": "0970802222",
 									"description": "unique|size:10|regex:09[0-9]{8}",
 									"type": "text"
 								},
@@ -88,6 +88,11 @@
 									"value": "07-3520820",
 									"description": "size:10|regex:0[0-9]{1}-[0-9]{7}",
 									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.07.22_19.26.08.649.png"
 								}
 							]
 						},
@@ -480,7 +485,7 @@
 							"urlencoded": [
 								{
 									"key": "account",
-									"value": "test@test.com4",
+									"value": "karta1571234@yahoo.com.tw",
 									"type": "text"
 								},
 								{
@@ -616,7 +621,106 @@
 							"response": []
 						},
 						{
-							"name": "updateProfile",
+							"name": "updateProfile(new)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{XSRF-TOKEN}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{user-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "鄭繼威",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "C108156135@nkust.edu.tw",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "女",
+											"type": "text"
+										},
+										{
+											"key": "birth",
+											"value": "2022/10/18",
+											"type": "text"
+										},
+										{
+											"key": "address_1",
+											"value": "高雄市",
+											"type": "text"
+										},
+										{
+											"key": "address_2",
+											"value": "高雄市",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0970802222",
+											"type": "text"
+										},
+										{
+											"key": "TEL",
+											"value": "07-3520028",
+											"type": "text"
+										},
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "/C:/Users/karta/Pictures/BlueStacks/Screenshot_2022.07.25_03.54.25.165.png"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"description": "add this key to let laravel to use PUT method to proccess this route",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/updateProfile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"laravel",
+										"my_pingtung_platform",
+										"public",
+										"updateProfile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateProfile(old)",
 							"event": [
 								{
 									"listen": "test",
@@ -698,6 +802,72 @@
 										"my_pingtung_platform",
 										"public",
 										"updateProfile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatePassword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{XSRF-TOKEN}}",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "{{user-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "old_password",
+											"value": "abcd1234",
+											"description": "OLD PW | at least 8, 1 letter ,1 number",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "1234abcd",
+											"description": "NEW PW | at least 8, 1 letter ,1 number",
+											"type": "text"
+										},
+										{
+											"key": "new_password_confirmation",
+											"value": "1234abcd",
+											"description": "confiirmed password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/updatePassword",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"laravel",
+										"my_pingtung_platform",
+										"public",
+										"updatePassword"
 									]
 								}
 							},
@@ -1097,7 +1267,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/37",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/71",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1108,7 +1278,7 @@
 										"public",
 										"getUserScaleAnswers",
 										"user",
-										"37"
+										"71"
 									]
 								}
 							},
@@ -1126,7 +1296,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/37/scaleAns/45",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/71/scaleAns/70",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1137,9 +1307,9 @@
 										"public",
 										"getUserScaleAnswers",
 										"user",
-										"37",
+										"71",
 										"scaleAns",
-										"45"
+										"70"
 									]
 								}
 							},
@@ -1566,7 +1736,7 @@
 									"urlencoded": []
 								},
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllScaleAnswer/2",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getAllScaleAnswer/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1576,7 +1746,7 @@
 										"my_pingtung_platform",
 										"public",
 										"getAllScaleAnswer",
-										"2"
+										"1"
 									]
 								}
 							},
@@ -1625,17 +1795,17 @@
 									{
 										"key": "token",
 										"value": "{{bureau_admin-token}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									},
 									{
 										"key": "token",
 										"value": "{{director_admin-token}}",
-										"type": "text",
-										"disabled": true
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/67/scaleAns/66",
+									"raw": "http://localhost/laravel/my_pingtung_platform/public/getUserScaleAnswers/user/71/scaleAns/69",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1646,9 +1816,9 @@
 										"public",
 										"getUserScaleAnswers",
 										"user",
-										"67",
+										"71",
 										"scaleAns",
-										"66"
+										"69"
 									]
 								}
 							},
@@ -1757,13 +1927,13 @@
 									{
 										"key": "token",
 										"value": "{{bureau_admin-token}}",
-										"type": "text",
-										"disabled": true
+										"type": "text"
 									},
 									{
 										"key": "token",
 										"value": "{{director_admin-token}}",
-										"type": "text"
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"body": {
