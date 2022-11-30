@@ -49,8 +49,8 @@ class NewsController extends Controller
         try {
             //輸入規則
             $datas = $req->validate(['title' => 'required|string', 'content' => 'required|string', 'news_types_id' => 'required|int']);
+            // $datas['img_url'] = $req->input('img_url');      //直接傳網址
             if ($req->hasFile('photo')) {
-                // $datas['img_url'] = $req->input('img_url');      //直接傳網址
                 $datas['img_url'] = $this->uploadImg($req);      //上傳圖片
             }
             $news = News::create($datas);
