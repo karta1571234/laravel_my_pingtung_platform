@@ -35,6 +35,7 @@ Route::post('/register', [UserController::class, 'register']);
 //self-profile
 Route::get('/getProfile', [UserController::class, 'getProfile']);
 Route::put('/updateProfile', [UserController::class, 'updateProfile']);
+Route::put('/updatePassword', [UserController::class, 'updatePassword']);
 //questionnaire
 Route::get('/getQuestionnaire', [QuestionnaireController::class, 'index']); //admin(目前沒有用)
 Route::post('/saveQuestionnaire', [QuestionnaireController::class, 'save']);    //保存 (for 社工)

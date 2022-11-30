@@ -132,6 +132,25 @@ class UserController extends Controller
             return response()->json(['status' => 202, 'message' => '沒有這個人<更新失敗>', 'success' => false], 202);
         }
     }
+    public function updatePassword(Request $request)
+    {
+        $token = $request->header('token');
+        $id = $this->CL->decodeToken($token);
+        $user = User::find($id);
+        try {
+            $password = $request->validate([
+                'old_password' => ['required', Password::min(8)->letters()->numbers()],
+                'new_password' => ['required', 'confirmed', Password::min(8)->letters()->numbers()],
+            ]);
+            if (!Hash::check($password['old_password'], $user->password)) {
+                return response()->json(['status' => 400, 'message' => '與舊密碼不符', 'success' => false], 400);
+            }
+            $user->update(['password' => Hash::make($password['new_password'])]);
+            return response()->json(['status' => 200, 'message' => '變更密碼成功', 'success' => false], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 400, 'message' => '變更密碼失敗=>' . $th->getMessage(), 'success' => false], 400);
+        }
+    }
     //admin userProfile
     public function index(Request $request)
     {
