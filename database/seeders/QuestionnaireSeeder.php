@@ -38,7 +38,7 @@ class QuestionnaireSeeder extends Seeder
         Questionnaire::create(['question' => '請問您目前是每天吸菸、有時吸菸還是都沒有吸菸？', 'option' => '["從來沒抽","以前有，現在沒有","有時吸菸","每天吸菸"]', 'input_type' => 'radiobox', 'tips' => '']);
         Questionnaire::create(['question' => '請問您是否有喝酒？', 'option' => '["從來不喝","社交飲酒","規律性飲酒"]', 'input_type' => 'radiobox', 'tips' => '※社交飲酒為「偶爾喝、有朋友來、聚會、有事慶祝等」；規律飲酒為「有習慣喝」。']);
         Questionnaire::create(['question' => '請問您是否有慢性疾病史？（可複選）', 'option' => '["沒有","高血壓","糖尿病","高血脂症","心臟病","腦中風","腎臟病","精神疾病","慢性阻塞性肺部疾病（COPD）","癌症","其他"]', 'input_type' => 'checkbox', 'tips' => '']);
-        Questionnaire::create(['question' => '在過去一個月內，請問您有沒有在運動？', 'option' => '["都沒有運動【請直接跳答第三部份】","因身體無法運動【請直接跳答第三部份】","有運動（續答第七題）"]', 'input_type' => 'radiobox', 'tips' => '']);
+        Questionnaire::create(['question' => '在過去一個月內，請問您有沒有在運動？', 'option' => '["都沒有運動【請直接送出】", "因身體無法運動【請直接送出】", "有運動（續答第二十五題）"]', 'input_type' => 'radiobox', 'tips' => '']);
         Questionnaire::create(['question' => '在過去一個月內，您平均一個星期做幾天運動？', 'option' => '["每周一天","每周二天","每周三天","每周四天","每周五天","每周六天","每周七天"]', 'input_type' => 'radiobox', 'tips' => '※持續十分鐘以上才算是運動，工作上的勞動不算（例如下田、搬貨或做家務等）。']);
         Questionnaire::create(['question' => '每天花多少分鐘運動？', 'option' => '["不知道","平均"]', 'input_type' => 'radiobox', 'tips' => '']);
         Questionnaire::create(['question' => '過去一個月內，請問您最常做的是哪一些運動呢？（可複選）', 'option' => '["散步(健走)","騎單車","慢跑","爬山","游泳","體操、舞蹈類運動及傳統武術","球類運動","健身器材","其他"]', 'input_type' => 'checkbox', 'tips' => '']);

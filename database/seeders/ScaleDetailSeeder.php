@@ -46,7 +46,7 @@ class ScaleDetailSeeder extends Seeder
         ScaleDetail::create(['scale_order_id' => 2, 'question' => '2.您是否減少很多的活動和興趣的事？ ', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
         ScaleDetail::create(['scale_order_id' => 2, 'question' => '3.您是否覺得您的生活很空虛？ ', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
         ScaleDetail::create(['scale_order_id' => 2, 'question' => '4.您是否常常感到厭煩？', 'option' => '["是","否"]',  'input_type' => 'radiobox', 'tips' => '']);
-        ScaleDetail::create(['scale_order_id' => 2, 'question' => '5.您是否大部份時間精 ？ ', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
+        ScaleDetail::create(['scale_order_id' => 2, 'question' => '5.您是否大部份時間精神都很好 ？ ', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
         ScaleDetail::create(['scale_order_id' => 2, 'question' => '6.您是否害怕將有不幸的事情發生在您身上嗎？', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
         ScaleDetail::create(['scale_order_id' => 2, 'question' => '7.您是否大部份的時間都感到快樂？', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
         ScaleDetail::create(['scale_order_id' => 2, 'question' => '8.您是否常常感到無論做什麼事，都沒有用？', 'option' => '["是","否"]', 'input_type' => 'radiobox', 'tips' => '']);
