@@ -31,6 +31,7 @@ class User extends Authenticatable
         'TEL',
         'bureau_id',
         'password',
+        'img_url',
         'social_worker_id',
     ];
 

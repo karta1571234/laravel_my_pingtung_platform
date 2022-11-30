@@ -73,6 +73,9 @@ class UserController extends Controller
             ]);
             $password = Hash::make($datas['password']);
             $datas['password'] = $password;
+            if ($request->hasFile('avatar')) {
+                $datas['img_url'] = $this->uploadImg($request);
+            }
 
             $user = User::create($datas);
             return response()->json(['status' => 200, 'message' => $user->name . '註冊成功',  'success' => true], 200);
@@ -113,6 +116,9 @@ class UserController extends Controller
                     'phone' => ['required', 'size:10', 'string', 'regex:/09[0-9]{8}/i', Rule::unique('users', 'phone')->ignore($user->id)],   //電話唯一(排除自己) + 長度=10
                     'TEL' => 'required|size:10|string|regex:/^0[0-9]{1}-[0-9]{7}$/', //長度=10
                 ]);
+                if ($request->hasFile('avatar')) {
+                    $datas['img_url'] = $this->uploadImg($request);
+                }
                 $update = $user->update($datas);
                 if ($update) {
                     return response()->json(['status' => 200, 'message' => $user->name . '更新成功', 'success' => true], 200);
@@ -213,6 +219,10 @@ class UserController extends Controller
             //密碼加密
             $password = Hash::make($datas['password']);
             $datas['password'] = $password;
+            //上傳頭貼
+            if ($request->hasFile('avatar')) {
+                $datas['img_url'] = $this->uploadImg($request);
+            }
 
             //決定bureau_id
             $arr_roles = $this->getRoles($request);
@@ -262,6 +272,9 @@ class UserController extends Controller
                     'phone' => ['required', 'size:10', 'string', 'regex:/09[0-9]{8}/i', Rule::unique('users', 'phone')->ignore($user->id)],   //電話唯一(排除自己) + 長度=10
                     'TEL' => 'required|size:10|string|regex:/^0[0-9]{1}-[0-9]{7}$/', //長度=10
                 ]);
+                if ($request->hasFile('avatar')) {
+                    $datas['img_url'] = $this->uploadImg($request);
+                }
 
                 //決定bureau_id
                 $arr_roles = $this->getRoles($request);
@@ -618,6 +631,17 @@ class UserController extends Controller
             }
         } catch (\Throwable $th) {
             return response()->json(['status' => 400, 'message' => '搜尋使用者成功', 'result' => $th->getMessage(), 'success' => true], 400);
+        }
+    }
+    public function uploadImg(Request $request)
+    {
+        try {
+            if ($request->file('avatar')->isValid()) {
+                $path = $request->avatar->store('image/user-avatar', 'public');
+                return 'http://localhost/laravel/my_pingtung_platform/storage/app/public/' . $path;
+            }
+        } catch (\Throwable $th) {
+            throw $th;
         }
     }
 }
